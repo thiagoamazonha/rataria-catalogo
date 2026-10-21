@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Catálogo Rataria – Novas Estampas">
+<meta property="og:description" content="Toque na estampa, escolha o tamanho e chame no WhatsApp.">
+<meta property="og:type" content="website">
+<title>Catálogo Rataria Novas Estampas</title>
+<style>
+  :root{--red:#d61820;--paper:#eeeae2;--ink:#141416;--line:rgba(255,255,255,.14)}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%;background:#0b0b0c;color:#fff;color-scheme:dark;font-family:"Segoe UI",system-ui,sans-serif;overflow:hidden}
+  #stage{position:relative;width:min(100vw,56.25dvh);aspect-ratio:9/16;margin:0 auto;top:50%;transform:translateY(-50%);overflow:hidden;overflow:clip;background:#000}
+  .page{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;transform:translateX(24px)}
+  .page.on{opacity:1;pointer-events:auto;transform:none}
+  .page img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hot{position:absolute;width:38.9%;height:29.2%;border-radius:6px;cursor:pointer;display:block}
+  .hot::after{content:"";position:absolute;inset:-5px;border:2px solid var(--red);border-radius:10px;opacity:0;animation:pulse 2.6s infinite}
+  .hot:nth-of-type(2)::after{animation-delay:.6s}.hot:nth-of-type(3)::after{animation-delay:1.2s}.hot:nth-of-type(4)::after{animation-delay:1.8s}
+  @keyframes pulse{0%,60%,100%{opacity:0;transform:scale(1)}25%{opacity:.9;transform:scale(1.025)}}
+  @media (prefers-reduced-motion:reduce){.hot::after{animation:none;opacity:.5}.page{transition:none}}
+  .bar{position:absolute;left:0;right:0;bottom:0;padding:34px 4% calc(18px + env(safe-area-inset-bottom));
+       background:linear-gradient(transparent,rgba(0,0,0,.82) 55%);display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .btn{font-weight:600;font-size:clamp(12px,3.4vw,16px);line-height:1;color:#fff;text-decoration:none;background:rgba(255,255,255,.14);
+       border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:13px 16px;cursor:pointer;backdrop-filter:blur(6px);letter-spacing:.04em;white-space:nowrap;font-family:inherit}
+  .btn:focus-visible,.chip:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .buy{background:var(--red);border-color:var(--red);padding:14px 20px;font-weight:700}
+  .top{position:absolute;top:calc(12px + env(safe-area-inset-top));left:4%;right:4%;display:flex;justify-content:space-between;color:#fff;font-size:12px;letter-spacing:.2em;opacity:.8}
+  .dots{display:flex;gap:6px}.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35)}.dots i.on{background:#fff}
+  #sheet{position:absolute;inset:0;z-index:5;display:flex;align-items:flex-end;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s}
+  #sheet.on{opacity:1;pointer-events:auto}
+  #sheet .box{position:relative;width:100%;background:#141416;border-top:1px solid var(--line);border-radius:18px 18px 0 0;padding:22px 6% calc(22px + env(safe-area-inset-bottom));transform:translateY(30px);transition:transform .25s}
+  #sheet.on .box{transform:none}
+  .box h3{margin:0 0 4px;font:italic 400 clamp(22px,6.4vw,30px)/1.1 Georgia,"Times New Roman",serif}
+  .box p{margin:0 0 16px;font-size:13px;letter-spacing:.14em;opacity:.7}
+  .chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+  .chip{padding:13px 0;text-align:center;border:1px solid rgba(255,255,255,.3);border-radius:10px;background:transparent;color:#fff;font-weight:600;font-size:15px;cursor:pointer;font-family:inherit}
+  .chip[aria-pressed=true]{background:#fff;color:#000;border-color:#fff}
+  .box .row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .link{color:#fff;opacity:.8;font-size:13px;letter-spacing:.06em;text-decoration:underline;text-underline-offset:3px;background:none;border:0;cursor:pointer;font-family:inherit;padding:8px 0}
+  .preco{font:600 clamp(20px,5.6vw,26px)/1 Georgia,serif;margin:0 0 14px}
+  .cepl{display:block;font-size:11px;letter-spacing:.14em;opacity:.7;margin:0 0 8px}
+  .cep{width:100%;box-sizing:border-box;padding:13px;border:1px solid rgba(255,255,255,.3);border-radius:10px;background:transparent;color:#fff;font-size:16px;font-family:inherit}
+  .cepinfo{min-height:34px;margin:8px 0 12px;font-size:13px;line-height:1.35;opacity:.85}
+  #stage [hidden]{display:none!important}
+  #sconf h4{margin:0 0 4px;font:italic 400 clamp(20px,5.6vw,26px)/1.15 Georgia,serif}
+  #sconf .q{margin:0 0 16px;font-size:14px;letter-spacing:.06em;opacity:.8}
+  .bagbtn{position:absolute;z-index:3;right:4%;top:calc(34px + env(safe-area-inset-top));padding:10px 14px;font-size:12px;letter-spacing:.12em;background:rgba(0,0,0,.55)}
+  .bagbtn b{display:inline-block;min-width:18px;padding:2px 5px;margin-left:2px;border-radius:999px;background:var(--red);text-align:center}
+  #sacola{background:#141416}
+  #sacola .in{position:absolute;inset:0;padding:calc(34px + env(safe-area-inset-top)) 6% calc(24px + env(safe-area-inset-bottom));overflow:auto}
+  #sacola small{letter-spacing:.28em;font-size:11px;opacity:.6}
+  #sacola h2{margin:6px 0 4px;font:italic 400 clamp(30px,9vw,44px)/1.05 Georgia,serif}
+  #sacola .red{width:44px;height:3px;background:var(--red);margin:12px 0 10px}
+  .vazio{padding:18px 0;opacity:.7}
+  .item{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .item .nm{flex:1;font-weight:600;font-size:15px}.item .nm small{display:block;margin-top:3px;font-size:12px;letter-spacing:.1em;opacity:.7}
+  .qty{display:flex;align-items:center;gap:8px;font-weight:700}
+  .qty button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:20px;line-height:1;cursor:pointer;font-family:inherit}
+  .tot{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0 6px;font-size:13px;letter-spacing:.14em}
+  .tot b{font:600 clamp(22px,6vw,28px) Georgia,serif;letter-spacing:0}
+  #sacola .cepl{margin-top:12px}
+  .wide{display:block;text-align:center;margin-top:8px}
+  .cont{background:transparent}
+  .go[aria-disabled=true]{opacity:.35;pointer-events:none}
+  .x{position:absolute;right:5%;top:16px;background:none;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;opacity:.7}
+  #tabela{background:var(--paper);color:var(--ink)}
+  #tabela .in{position:absolute;inset:0;padding:calc(34px + env(safe-area-inset-top)) 7% 90px;display:flex;flex-direction:column}
+  #tabela small{letter-spacing:.28em;font-size:11px;color:#555}
+  #tabela h2{margin:6px 0 4px;font:italic 400 clamp(30px,9vw,46px)/1.05 Georgia,"Times New Roman",serif}
+  #tabela .red{width:44px;height:3px;background:var(--red);margin:12px 0 18px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  th{font-size:11px;letter-spacing:.2em;text-align:center;padding:10px 4px;border-bottom:2px solid var(--ink);font-weight:700}
+  td{text-align:center;padding:clamp(9px,2.6vw,15px) 4px;border-bottom:1px solid rgba(20,20,22,.18);font-size:clamp(15px,4.4vw,20px)}
+  td:first-child{font-weight:800;letter-spacing:.06em}
+  tr.pick td{background:var(--red);color:#fff}
+  #tabela .dica{margin:16px 0 0;font-size:13px;line-height:1.45;color:#444}
+  #tabela .bar{background:none}
+  #tabela .btn{color:var(--ink);border-color:var(--ink);background:transparent;backdrop-filter:none}
+
+  #stage{container-type:inline-size}
+  #capa{background:radial-gradient(120% 62% at 50% 40%,#5c0b13 0%,#1c0709 46%,#09090b 82%)}
+  #capa .logo{position:absolute;left:50%;top:3cqw;width:11cqw;height:auto;transform:translateX(-50%)}
+  #capa .eyebrow{position:absolute;left:0;right:0;top:19.5cqw;text-align:center;font-size:2.7cqw;letter-spacing:1.1cqw;color:rgba(255,255,255,.7)}
+  #capa h1{position:absolute;left:0;right:0;top:23.5cqw;margin:0;text-align:center;font:italic 400 9cqw/1 Georgia,"Times New Roman",serif;color:#f6f4f0}
+  #arts{position:absolute;inset:0}
+  .art{position:absolute;left:var(--l);top:var(--t);width:var(--w);height:var(--h);display:block;}
+  .art img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1.6cqw 2.6cqw rgba(0,0,0,.65))}
+  .art[data-r="0"]{opacity:1}.art:not([data-r="0"]){opacity:.82}
+  .art:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:6px}
+  #capa .who{position:absolute;left:0;right:0;top:119.5cqw;text-align:center;font-size:2.9cqw;letter-spacing:1.2cqw;color:#fff}
+  #capa .hint{position:absolute;left:0;right:0;top:167cqw;margin:0;text-align:center;font-size:2.5cqw;letter-spacing:.9cqw;color:#e8434a;animation:hint 2.6s infinite}
+  @keyframes hint{0%,100%{opacity:.55}50%{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.art{transition:none}#capa .hint{animation:none}}
+
+  .zhint{position:absolute;top:calc(34px + env(safe-area-inset-top));left:4%;font-size:10px;letter-spacing:.18em;color:#fff;opacity:.8;text-shadow:0 1px 4px rgba(0,0,0,.9)}
+  .zhot{position:absolute;background:transparent;border:0;padding:0;border-radius:8px;cursor:zoom-in}
+  .zhot.back::after{content:"";position:absolute;inset:-4px;border:2px solid rgba(255,255,255,.75);border-radius:12px;opacity:0;animation:zring 2.4s 3 .8s}
+  @keyframes zring{0%,70%,100%{opacity:0;transform:scale(1)}30%{opacity:.9;transform:scale(1.02)}}
+  .zhot:focus-visible{outline:2px solid #fff}
+  #zoom{position:absolute;inset:0;z-index:4;background:#0b0b0c;display:none;flex-direction:column}
+  #zoom.on{display:flex}
+  .zbar{display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top)) 4% 8px}
+  .ztabs{display:flex;gap:6px}
+  .ztabs button{font-family:inherit;font-weight:600;font-size:12px;letter-spacing:.14em;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 16px;cursor:pointer}
+  .ztabs button[aria-pressed=true]{background:#fff;color:#000;border-color:#fff}
+  .zx{background:none;border:0;color:#fff;font-size:32px;line-height:1;cursor:pointer;padding:0 6px}
+  #zwrap{flex:1;min-height:0;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:none}
+  .zload{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);font-size:11px;letter-spacing:.16em;color:#fff;background:rgba(0,0,0,.55);padding:7px 14px;border-radius:999px;pointer-events:none}
+  #zimg.lq{filter:blur(8px);width:100%;height:100%}
+  #zimg{transition:filter .35s;max-width:100%;max-height:100%;object-fit:contain;user-select:none;-webkit-user-select:none;will-change:transform}
+  .zdica{margin:0;text-align:center;font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.6);padding:8px 0 2px}
+  .zbot{padding:8px 4% calc(16px + env(safe-area-inset-bottom));display:flex;justify-content:center}
+</style>
+</head>
+<body>
+<div id="stage">
+  <section class="page on" id="capa" aria-label="Capa">
+    <img class="logo" src="img/logo.webp" alt="Rataria">
+    <small class="eyebrow">COLEÇÃO 2026</small>
+    <h1>Novas Estampas</h1>
+    <div id="arts"></div>
+    <div class="who" id="who" aria-live="polite"></div>
+    <p class="hint">TOQUE NA ESTAMPA QUE VOCÊ QUER</p>
+  </section>
+
+  <section class="page" id="tabela">
+    <div class="in">
+      <small>RATARIA · CAMISETAS</small>
+      <h2>Tabela de medidas</h2>
+      <div class="red"></div>
+      <table>
+        <thead><tr><th>TAM.</th><th>TÓRAX (cm)</th><th>COMPR. (cm)</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="dica">Meça uma camiseta sua que veste bem, deitada: largura do tórax (de axila a axila) e comprimento (do ombro à barra). Medidas aproximadas, com até 1 cm de variação.</p>
+    </div>
+    <div class="bar"><button class="btn" id="tvolta" type="button">← VOLTAR</button></div>
+  </section>
+
+  <div id="zoom" aria-hidden="true">
+    <div class="zbar">
+      <div class="ztabs" role="group" aria-label="Lado da camisa">
+        <button type="button" data-l="frente" aria-pressed="false">FRENTE</button>
+        <button type="button" data-l="costas" aria-pressed="true">COSTAS</button>
+      </div>
+      <button type="button" id="zx" class="zx" aria-label="Fechar">×</button>
+    </div>
+    <div id="zwrap"><img id="zimg" alt="" draggable="false"><div class="zload" id="zload" hidden>Carregando…</div></div>
+    <p class="zdica">Dois toques ou dois dedos para aproximar</p>
+    <div class="zbot"><button type="button" class="btn buy" id="zbuy">QUERO ESTA</button></div>
+  </div>
+
+  <button type="button" id="bagbtn" class="btn bagbtn" hidden aria-label="Abrir sacola">SACOLA · <b id="bagn">0</b></button>
+
+  <section class="page" id="sacola" aria-label="Sacola">
+    <div class="in">
+      <small>RATARIA · SEU PEDIDO</small>
+      <h2>Sacola</h2>
+      <div class="red"></div>
+      <div id="bagempty" class="vazio">Sua sacola está vazia.</div>
+      <div id="baglist"></div>
+      <div class="tot" id="bagtot"><span>TOTAL</span><b id="bagval">R$ 0,00</b></div>
+      <label class="cepl" for="cep">SEU CEP (PARA CALCULAR A ENTREGA)</label>
+      <input id="cep" class="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000">
+      <div class="cepinfo" id="cepinfo" aria-live="polite"></div>
+      <a class="btn buy go wide" id="sgo" aria-disabled="true" target="_blank" rel="noopener">ENVIAR PEDIDO NO WHATSAPP</a>
+      <a class="btn wide cont" href="#capa">← CONTINUAR ESCOLHENDO</a>
+    </div>
+  </section>
+
+  <div id="sheet" aria-hidden="true">
+    <div class="box" role="dialog" aria-labelledby="sh-title">
+      <button class="x" id="sx" type="button" aria-label="Fechar">×</button>
+      <h3 id="sh-title"></h3>
+      <div class="preco">R$ 100,00</div>
+      <p id="sh-lbl">ESCOLHA O TAMANHO</p>
+      <div class="chips" id="chips"></div>
+      <div class="row">
+        <button class="link" id="stab" type="button">Ver tabela de medidas</button>
+        <button class="btn buy go" id="sadd" type="button" aria-disabled="true">ADICIONAR À SACOLA</button>
+      </div>
+      <div id="sconf" hidden>
+        <h4>Camisa adicionada à sacola!</h4>
+        <p class="q">Quer levar outra?</p>
+        <div class="row">
+          <button class="btn" id="soutra" type="button">ESCOLHER OUTRA</button>
+          <button class="btn buy" id="sfim" type="button">FINALIZAR PEDIDO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+/* ---------- CONFIGURAR ---------- */
+// WhatsApp com DDI+DDD+numero, so digitos (ex.: "5592999999999"). Vazio = o cliente escolhe o contato.
+// Por vendedor: link ...?v=ana usa WHATS.ana
+const WHATS = { padrao: "5592988530334", ana: "", bruno: "" };
+const ESTAMPAS = [
+  { id:"arrasca",  nome:"ARRASCA",      costas:[12.5,27,36,30],  frente:[79,38,12,9]  },
+  { id:"samu",     nome:"CHAMA O SAMU", costas:[11,26.5,42,34],  frente:[80,43,18,7]  },
+  { id:"jorginho", nome:"JORGINHO",     costas:[9.7,29.5,36,24.5], frente:[77,41,12,8] },
+  { id:"romario",  nome:"ROMÁRIO",      costas:[11.7,27,36,30.5], frente:[81,43,15,7] },
+];
+const TAMANHOS = [["PP",46,65],["P",49,67],["M",52,69],["G",55,71],["GG",58,73],["G1",61,75],["G3",65,78]];
+/* -------------------------------- */
+const stage = document.getElementById('stage');
+const vend = new URLSearchParams(location.search).get('v');
+const fone = WHATS[vend] ?? WHATS.padrao;
+let atual = null, tamanho = null, ultima = 'capa';
+
+ESTAMPAS.forEach((e,i)=>{
+  const next = i===ESTAMPAS.length-1 ? '#capa' : '#'+ESTAMPAS[i+1].id;
+  const dots = ESTAMPAS.map((_,j)=>`<i class="${j===i?'on':''}"></i>`).join('');
+  const s = document.createElement('section');
+  s.className='page'; s.id=e.id; s.dataset.prev = i===0 ? '#capa' : '#'+ESTAMPAS[i-1].id; s.dataset.next=next;
+  s.innerHTML = `<img class="bg" src="img/${e.id}.jpg" alt="${e.nome}">
+    <div class="top"><span>${e.nome}</span><span class="dots">${dots}</span></div>
+    <div class="zhint">TOQUE NA ESTAMPA PARA AMPLIAR</div>
+    <button class="zhot back" type="button" data-z="costas" data-id="${e.id}" aria-label="Ampliar estampa das costas" style="left:${e.costas[0]}%;top:${e.costas[1]}%;width:${e.costas[2]}%;height:${e.costas[3]}%"></button>
+    <button class="zhot" type="button" data-z="frente" data-id="${e.id}" aria-label="Ampliar estampa da frente" style="left:${e.frente[0]}%;top:${e.frente[1]}%;width:${e.frente[2]}%;height:${e.frente[3]}%"></button>
+    <div class="bar">
+      <a class="btn" href="#capa" aria-label="Voltar à capa">← CAPA</a>
+      <button class="btn buy" type="button" data-e="${i}">QUERO ESTA</button>
+      <a class="btn" href="${next}" aria-label="Próxima estampa">${i===ESTAMPAS.length-1?'FIM ›':'PRÓXIMA →'}</a>
+    </div>`;
+  stage.appendChild(s);
+});
+
+const rows = document.getElementById('rows');
+TAMANHOS.forEach(([t,a,b])=>{ const tr=document.createElement('tr'); tr.dataset.t=t; tr.innerHTML=`<td>${t}</td><td>${a}</td><td>${b}</td>`; rows.appendChild(tr); });
+function marca(){ rows.querySelectorAll('tr').forEach(tr=>tr.classList.toggle('pick',tr.dataset.t===tamanho)); }
+
+const sheet=document.getElementById('sheet'), chips=document.getElementById('chips'), sgo=document.getElementById('sgo');
+TAMANHOS.forEach(([t])=>{ const b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=t; b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{ tamanho=t; chips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',String(c===b))); habilitaAdd(); }; chips.appendChild(b); });
+const REAL=n=>'R$ '+n.toFixed(2).replace('.',',');
+const PRECO=100;
+let sacola=[]; try{ sacola=JSON.parse(localStorage.getItem('rataria_sacola')||'[]').filter(x=>ESTAMPAS.some(e=>e.id===x.id)&&TAMANHOS.some(t=>t[0]===x.t)&&x.q>0); }catch(_){ }
+const salva=()=>{ try{ localStorage.setItem('rataria_sacola',JSON.stringify(sacola)); }catch(_){ } };
+const bagbtn=document.getElementById('bagbtn'), bagn=document.getElementById('bagn'), baglist=document.getElementById('baglist');
+const qtd=()=>sacola.reduce((a,x)=>a+x.q,0);
+let cep=null, local='';
+const cepEl=document.getElementById('cep'), cepInfo=document.getElementById('cepinfo');
+const ehManaus=d=>{const n=+d.slice(0,5); return n>=69000&&n<=69099;};
+function desenhaSacola(){
+  const n=qtd(); bagn.textContent=n; bagbtn.hidden = n===0 || atualId==='sacola';
+  document.getElementById('bagempty').hidden=n>0; document.getElementById('bagtot').hidden=n===0;
+  document.getElementById('bagval').textContent=REAL(n*PRECO);
+  baglist.innerHTML=sacola.map((x,i)=>{ const e=ESTAMPAS.find(y=>y.id===x.id);
+    return `<div class="item"><div class="nm">${e.nome}<small>TAMANHO ${x.t} · ${REAL(PRECO)}</small></div><div class="qty"><button type="button" data-q="${i}" data-d="-1" aria-label="Tirar uma">${x.q===1?'×':'−'}</button><span>${x.q}</span><button type="button" data-q="${i}" data-d="1" aria-label="Mais uma">+</button></div></div>`; }).join('');
+  atualizaLink();
+}
+baglist.addEventListener('click',e=>{ const b=e.target.closest('[data-q]'); if(!b) return; const x=sacola[+b.dataset.q]; x.q+=+b.dataset.d;
+  if(x.q<=0) sacola.splice(+b.dataset.q,1); salva(); desenhaSacola(); });
+cepEl.addEventListener('input',()=>{
+  let d=cepEl.value.replace(/\D/g,'').slice(0,8); cepEl.value=d.length>5?d.slice(0,5)+'-'+d.slice(5):d;
+  cep=null; local=''; cepInfo.textContent='';
+  if(d.length===8){ cep=d; const my=d;
+    cepInfo.textContent='Buscando…';
+    fetch(`https://viacep.com.br/ws/${d}/json/`).then(r=>r.json()).then(j=>{ if(cep!==my) return;
+      if(j.erro){ cep=null; cepInfo.textContent='CEP não encontrado. Confira os números.'; }
+      else { local=`${j.bairro?j.bairro+', ':''}${j.localidade}/${j.uf}`;
+        cepInfo.textContent=local+(ehManaus(d)?' — entrega em Manaus: a loja calcula a taxa da moto.':' — envio para fora de Manaus: a loja informa o frete.'); }
+      atualizaLink(); }).catch(()=>{ if(cep===my){ cepInfo.textContent='Não consegui confirmar a cidade, mas seu CEP vai na mensagem.'; atualizaLink(); } });
+  }
+  atualizaLink(); });
+function atualizaLink(){
+  if(!sacola.length||!cep){ sgo.setAttribute('aria-disabled','true'); sgo.removeAttribute('href'); return; }
+  const cp=cep.slice(0,5)+'-'+cep.slice(5), n=qtd();
+  const itens=sacola.map(x=>`${x.q}x ${ESTAMPAS.find(y=>y.id===x.id).nome}, tamanho ${x.t}`).join('\n');
+  const msg=encodeURIComponent(`Oi! Vi o catálogo e quero:\n${itens}\nTotal: ${REAL(n*PRECO)}\nCEP de entrega: ${cp}${local?' ('+local+')':''}.`);
+  sgo.href=`https://wa.me/${fone}?text=${msg}`; sgo.setAttribute('aria-disabled','false');
+}
+const sadd=document.getElementById('sadd'), sconf=document.getElementById('sconf');
+function habilitaAdd(){ sadd.setAttribute('aria-disabled',String(!tamanho)); }
+sadd.onclick=()=>{ if(!tamanho) return; const x=sacola.find(y=>y.id===atual.id&&y.t===tamanho); if(x) x.q++; else sacola.push({id:atual.id,t:tamanho,q:1});
+  salva(); desenhaSacola(); mostraConf(true); };
+function mostraConf(on){ sconf.hidden=!on; chips.hidden=on; document.getElementById('sh-lbl').hidden=on; sadd.closest('.row').hidden=on; }
+document.getElementById('soutra').onclick=()=>{ fecha(); location.hash='capa'; };
+document.getElementById('sfim').onclick=()=>{ fecha(); location.hash='sacola'; };
+bagbtn.onclick=()=>{ location.hash='sacola'; };
+function abre(i){ atual=ESTAMPAS[i]; ultima=atual.id; document.getElementById('sh-title').textContent=atual.nome;
+  tamanho=null; chips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false')); habilitaAdd(); mostraConf(false);
+  sheet.classList.add('on'); sheet.setAttribute('aria-hidden','false'); }
+function fecha(){ sheet.classList.remove('on'); sheet.setAttribute('aria-hidden','true'); }
+stage.addEventListener('click',e=>{ const b=e.target.closest('[data-e]'); if(b) abre(+b.dataset.e); });
+document.getElementById('sx').onclick=fecha;
+sheet.addEventListener('click',e=>{ if(e.target===sheet) fecha(); });
+document.getElementById('stab').onclick=()=>{ fecha(); marca(); location.hash='tabela'; };
+document.getElementById('tvolta').onclick=()=>{ location.hash=ultima; };
+
+const arts = document.getElementById('arts'), who = document.getElementById('who');
+const SLOTS = [{l:17,t:36,w:66,h:82},{l:7.5,t:126,w:27,h:36},{l:36.5,t:126,w:27,h:36},{l:65.5,t:126,w:27,h:36}];
+let foco = 0, timer = null, atualId = 'capa';
+ESTAMPAS.forEach((e,i)=>{ const a=document.createElement('a'); a.className='art'; a.href='#'+e.id; a.dataset.i=i; a.setAttribute('aria-label',e.nome);
+  a.innerHTML=`<img src="img/arte_${e.id}.webp" alt="${e.nome}" draggable="false">`; arts.appendChild(a); });
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cxy = r => { const q=SLOTS[r]; return {x:q.l+q.w/2, y:q.t+q.h/2, w:q.w, h:q.h}; };
+function setSlot(a,r){ const q=SLOTS[r]; a.style.left=q.l+'cqw'; a.style.top=q.t+'cqw'; a.style.width=q.w+'cqw'; a.style.height=q.h+'cqw'; a.style.zIndex=r===0?2:1; a.dataset.r=r; }
+function layout(anim){ const n=ESTAMPAS.length;
+  arts.querySelectorAll('.art').forEach(a=>{
+    const old = a.dataset.r===undefined ? null : +a.dataset.r, r=(+a.dataset.i-foco+n)%n;
+    setSlot(a,r);
+    if(!anim || old===null || old===r) return;
+    const A0=cxy(old), A1=cxy(r), volta=(old===0 && r===n-1), N=16, kf=[];
+    for(let k=0;k<=N;k++){ const t=k/N; let x,y;
+      if(volta){ const c={x:108,y:(A0.y+A1.y)/2}; x=(1-t)*(1-t)*A0.x+2*(1-t)*t*c.x+t*t*A1.x; y=(1-t)*(1-t)*A0.y+2*(1-t)*t*c.y+t*t*A1.y; }
+      else { x=A0.x+(A1.x-A0.x)*t; y=A0.y+(A1.y-A0.y)*t; }
+      const w=A0.w+(A1.w-A0.w)*t, h=A0.h+(A1.h-A0.h)*t;
+      kf.push({left:(x-w/2)+'cqw', top:(y-h/2)+'cqw', width:w+'cqw', height:h+'cqw',
+               opacity:(old===0?1:.82)+((r===0?1:.82)-(old===0?1:.82))*t, transform:`rotate(${volta&&!REDUCE?14*Math.sin(Math.PI*t):0}deg)`}); }
+    a.style.zIndex = volta ? 3 : (r===0 ? 2 : 1);
+    a.animate(kf,{duration:REDUCE?850:1100,easing:'cubic-bezier(.45,0,.2,1)'}).onfinish=()=>{ a.style.zIndex=r===0?2:1; };
+  });
+  if(anim) setTimeout(()=>{ who.textContent = ESTAMPAS[foco].nome; },450); else who.textContent = ESTAMPAS[foco].nome; }
+function agenda(){ clearTimeout(timer);
+  timer=setTimeout(()=>{ if(atualId==='capa'){ foco=(foco+1)%ESTAMPAS.length; layout(true); agenda(); } },7000); }
+stage.addEventListener('pointerdown',()=>{ if(atualId==='capa') agenda(); });
+layout(); agenda();
+
+const zoom=document.getElementById('zoom'), zimg=document.getElementById('zimg'), zwrap=document.getElementById('zwrap');
+const Z={id:null,lado:'costas',s:1,x:0,y:0}, ptrs=new Map();
+let zd0=0, zs0=1, zTap=0, zMoved=0, zT0=0;
+function zClamp(){ const w=zwrap.clientWidth,h=zwrap.clientHeight,iw=zimg.clientWidth*Z.s,ih=zimg.clientHeight*Z.s;
+  const mx=Math.max(0,(iw-w)/2), my=Math.max(0,(ih-h)/2); Z.x=Math.min(mx,Math.max(-mx,Z.x)); Z.y=Math.min(my,Math.max(-my,Z.y)); }
+function zApply(){ zClamp(); zimg.style.transform=`translate(${Z.x}px,${Z.y}px) scale(${Z.s})`; }
+function zReset(){ Z.s=1; Z.x=0; Z.y=0; zimg.style.transform=''; }
+const ZBG={arrasca:'#505050'}, zload=document.getElementById('zload'); let zTok=0; const pre=new Set();
+function preZoom(id){ ['costas','frente'].forEach(l=>{ const u=`img/zoom_${id}_${l}.webp`; if(pre.has(u)) return; pre.add(u); const im=new Image(); im.src=u; }); }
+function zLado(l){ Z.lado=l; zReset(); zoom.style.background=ZBG[Z.id]||'#000'; const url=`img/zoom_${Z.id}_${l}.webp`, my=++zTok; zimg.classList.add('lq'); zimg.src=`img/zoom_${Z.id}_${l}_lq.webp`; zload.hidden=false;
+  const im=new Image(); im.onload=()=>{ if(my!==zTok) return; zimg.src=url; zimg.classList.remove('lq'); zload.hidden=true; }; im.src=url;
+  const e=ESTAMPAS.find(x=>x.id===Z.id); zimg.alt=`${e.nome}, ${l}`;
+  zoom.querySelectorAll('.ztabs button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===l))); }
+function zAbre(id,l){ Z.id=id; zoom.classList.add('on'); zoom.setAttribute('aria-hidden','false'); zLado(l); }
+function fechaZ(){ zoom.classList.remove('on'); zoom.setAttribute('aria-hidden','true'); ptrs.clear(); }
+stage.addEventListener('click',e=>{ const b=e.target.closest('[data-z]'); if(b) zAbre(b.dataset.id,b.dataset.z); });
+zoom.querySelectorAll('.ztabs button').forEach(b=>b.onclick=()=>zLado(b.dataset.l));
+document.getElementById('zx').onclick=fechaZ;
+document.getElementById('zbuy').onclick=()=>{ abre(ESTAMPAS.findIndex(e=>e.id===Z.id)); };
+addEventListener('keydown',e=>{ if(e.key==='Escape') fechaZ(); });
+const zdist=()=>{ const [a,b]=[...ptrs.values()]; return Math.hypot(a.x-b.x,a.y-b.y); };
+zwrap.addEventListener('pointerdown',e=>{ zwrap.setPointerCapture(e.pointerId); ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(ptrs.size===2){ zd0=zdist(); zs0=Z.s; } else { zMoved=0; zT0=Date.now(); } });
+zwrap.addEventListener('pointermove',e=>{ const p=ptrs.get(e.pointerId); if(!p) return;
+  const dx=e.clientX-p.x, dy=e.clientY-p.y; p.x=e.clientX; p.y=e.clientY;
+  if(ptrs.size===2){ Z.s=Math.min(4,Math.max(1,zs0*zdist()/zd0)); zApply(); }
+  else if(Z.s>1){ Z.x+=dx; Z.y+=dy; zApply(); }
+  zMoved+=Math.abs(dx)+Math.abs(dy); });
+function zUp(e){ const had=ptrs.delete(e.pointerId);
+  if(had && ptrs.size===0){
+    if(zMoved<10 && Date.now()-zT0<300){ const now=Date.now();
+      if(now-zTap<320){ const r=zwrap.getBoundingClientRect(), px=e.clientX-r.left-r.width/2, py=e.clientY-r.top-r.height/2, ns=Z.s>1.2?1:2.5;
+        Z.x=px-(px-Z.x)*ns/Z.s; Z.y=py-(py-Z.y)*ns/Z.s; Z.s=ns; if(ns===1){Z.x=0;Z.y=0;} zApply(); zTap=0; } else zTap=now; }
+    if(Z.s<1.02) zReset(); } }
+zwrap.addEventListener('pointerup',zUp); zwrap.addEventListener('pointercancel',zUp);
+
+function show(){
+  const id=(location.hash||'#capa').slice(1);
+  const alvo=document.getElementById(id)||document.getElementById('capa');
+  const k=ESTAMPAS.findIndex(e=>e.id===atualId);
+  if(alvo.id==='capa'){ if(k>=0){ const nf=(k+1)%ESTAMPAS.length, passo=(nf===(foco+1)%ESTAMPAS.length); foco=nf; layout(passo); } agenda(); } else { clearTimeout(timer); }
+  atualId=alvo.id; fechaZ(); if(ESTAMPAS.some(e=>e.id===alvo.id)) setTimeout(()=>preZoom(alvo.id),500); stage.scrollLeft=0; stage.scrollTop=0;
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p===alvo));
+  if(alvo.id!=='tabela') fecha();
+  desenhaSacola();
+}
+addEventListener('hashchange',show); show();
+
+let x0=null;
+stage.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+stage.addEventListener('touchend',e=>{
+  if(x0===null) return; const dx=e.changedTouches[0].clientX-x0; x0=null;
+  const p=document.querySelector('.page.on'); if(sheet.classList.contains('on')||zoom.classList.contains('on')||Math.abs(dx)<60||!p.dataset.next) return;
+  location.hash = dx<0 ? p.dataset.next : p.dataset.prev;
+});
+</script>
+</body>
+</html>
