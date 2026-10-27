@@ -89,19 +89,19 @@
   #stage{container-type:inline-size}
   #capa{background:radial-gradient(120% 62% at 50% 40%,#5c0b13 0%,#1c0709 46%,#09090b 82%)}
   #capa .logo{position:absolute;left:50%;top:3cqw;width:11cqw;height:auto;transform:translateX(-50%)}
-  #capa .eyebrow{position:absolute;left:0;right:0;top:19.5cqw;text-align:center;font-size:2.7cqw;letter-spacing:1.1cqw;color:rgba(255,255,255,.7)}
-  #capa h1{position:absolute;left:0;right:0;top:23.5cqw;margin:0;text-align:center;font:italic 400 9cqw/1 Georgia,"Times New Roman",serif;color:#f6f4f0}
+  #capa h1{position:absolute;left:0;right:0;top:21cqw;margin:0;text-align:center;font:400 3.4cqw/1 "Segoe UI",system-ui,sans-serif;letter-spacing:1.2cqw;padding-left:1.2cqw;color:#fff;opacity:.92}
   #arts{position:absolute;inset:0}
   .art{position:absolute;left:var(--l);top:var(--t);width:var(--w);height:var(--h);display:block;}
   .art img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1.6cqw 2.6cqw rgba(0,0,0,.65))}
   .art[data-r="0"]{opacity:1}.art:not([data-r="0"]){opacity:.82}
   .art:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:6px}
-  #capa .who{position:absolute;left:0;right:0;top:119.5cqw;text-align:center;font-size:2.9cqw;letter-spacing:1.2cqw;color:#fff}
-  #capa .hint{position:absolute;left:0;right:0;top:167cqw;margin:0;text-align:center;font-size:2.5cqw;letter-spacing:.9cqw;color:#e8434a;animation:hint 2.6s infinite}
+  #capa .who{position:absolute;left:0;right:0;top:110.5cqw;text-align:center;font-size:2.9cqw;letter-spacing:1.2cqw;color:#fff}
+  #capa .hint{position:absolute;left:0;right:0;top:156.5cqw;margin:0;text-align:center;font-size:2.5cqw;letter-spacing:.9cqw;color:#e8434a;animation:hint 2.6s infinite}
   @keyframes hint{0%,100%{opacity:.55}50%{opacity:1}}
   @media (prefers-reduced-motion:reduce){.art{transition:none}#capa .hint{animation:none}}
 
   .zhint{position:absolute;top:calc(34px + env(safe-area-inset-top));left:4%;font-size:10px;letter-spacing:.18em;color:#fff;opacity:.8;text-shadow:0 1px 4px rgba(0,0,0,.9)}
+  .nozoom .zhot,.nozoom .zhint{display:none!important}
   .zhot{position:absolute;background:transparent;border:0;padding:0;border-radius:8px;cursor:zoom-in}
   .zhot.back::after{content:"";position:absolute;inset:-4px;border:2px solid rgba(255,255,255,.75);border-radius:12px;opacity:0;animation:zring 2.4s 3 .8s}
   @keyframes zring{0%,70%,100%{opacity:0;transform:scale(1)}30%{opacity:.9;transform:scale(1.02)}}
@@ -118,6 +118,21 @@
   #zimg.lq{filter:blur(8px);width:100%;height:100%}
   #zimg{transition:filter .35s;max-width:100%;max-height:100%;object-fit:contain;user-select:none;-webkit-user-select:none;will-change:transform}
   .zdica{margin:0;text-align:center;font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.6);padding:8px 0 2px}
+  #capa .clas{position:absolute;left:50%;top:164cqw;transform:translateX(-50%);color:#fff;text-decoration:none;font-size:3.4cqw;letter-spacing:1.2cqw;opacity:.92;padding:2.2cqw 4cqw;white-space:nowrap;border-top:1px solid rgba(255,255,255,.3)}
+  #capa .clas:hover,#capa .clas:focus-visible{opacity:1;outline:0}
+  .cchips{display:flex;gap:8px;margin-bottom:14px}.cchips .chip{flex:1;padding:13px 4px;font-size:14px}
+  .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px;vertical-align:-1px;border:1px solid rgba(128,128,128,.7)}
+  .chip[aria-pressed=true] .dot{border-color:#000}
+  #classicos{background:#101012}
+  #classicos .in{position:absolute;inset:0;padding:calc(34px + env(safe-area-inset-top)) 5% 96px;overflow:auto}
+  #classicos small{letter-spacing:.28em;font-size:11px;opacity:.6}
+  #classicos h2{margin:6px 0 4px;font:italic 400 clamp(30px,9vw,44px)/1.05 Georgia,serif}
+  #classicos .red{width:44px;height:3px;background:var(--red);margin:12px 0 14px}
+  .lista{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 8px}
+  .lista a{color:#fff;text-decoration:none;display:block;font-size:10px;letter-spacing:.08em;line-height:1.25;text-align:center}
+  .lista img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:#222;margin-bottom:5px;border:1px solid rgba(255,255,255,.12)}
+  #classicos .bar{background:linear-gradient(transparent,#101012 55%)}
+  .zhint{pointer-events:auto;background:rgba(0,0,0,.35);border:0;font-family:inherit;cursor:pointer;padding:6px 8px;border-radius:999px}
   .zbot{padding:8px 4% calc(16px + env(safe-area-inset-bottom));display:flex;justify-content:center}
 </style>
 </head>
@@ -125,11 +140,21 @@
 <div id="stage">
   <section class="page on" id="capa" aria-label="Capa">
     <img class="logo" src="img/logo.webp" alt="Rataria">
-    <small class="eyebrow">COLEÇÃO 2026</small>
-    <h1>Novas Estampas</h1>
+    <h1>LANÇAMENTOS</h1>
     <div id="arts"></div>
     <div class="who" id="who" aria-live="polite"></div>
     <p class="hint">TOQUE NA ESTAMPA QUE VOCÊ QUER</p>
+    <a class="clas" href="#classicos">MODELOS CLÁSSICOS ›</a>
+  </section>
+
+  <section class="page" id="classicos" aria-label="Modelos clássicos">
+    <div class="in">
+      <small>RATARIA · COLEÇÃO</small>
+      <h2>Modelos clássicos</h2>
+      <div class="red"></div>
+      <div class="lista" id="lista"></div>
+    </div>
+    <div class="bar"><a class="btn" href="#capa">← CAPA</a></div>
   </section>
 
   <section class="page" id="tabela">
@@ -182,6 +207,8 @@
       <button class="x" id="sx" type="button" aria-label="Fechar">×</button>
       <h3 id="sh-title"></h3>
       <div class="preco">R$ 100,00</div>
+      <p id="cor-lbl" hidden>ESCOLHA A COR</p>
+      <div class="cchips" id="cchips" hidden></div>
       <p id="sh-lbl">ESCOLHA O TAMANHO</p>
       <div class="chips" id="chips"></div>
       <div class="row">
@@ -204,36 +231,65 @@
 // WhatsApp com DDI+DDD+numero, so digitos (ex.: "5592999999999"). Vazio = o cliente escolhe o contato.
 // Por vendedor: link ...?v=ana usa WHATS.ana
 const WHATS = { padrao: "5592988530334", ana: "", bruno: "" };
+const PRETA = {n:"Preta",k:"#111"};
 const ESTAMPAS = [
   { id:"arrasca",  nome:"ARRASCA",      costas:[12.5,27,36,30],  frente:[79,38,12,9]  },
   { id:"samu",     nome:"CHAMA O SAMU", costas:[11,26.5,42,34],  frente:[80,43,18,7]  },
   { id:"jorginho", nome:"JORGINHO",     costas:[9.7,29.5,36,24.5], frente:[77,41,12,8] },
   { id:"romario",  nome:"ROMÁRIO",      costas:[11.7,27,36,30.5], frente:[81,43,15,7] },
+  /* MODELOS CLÁSSICOS (cl:1). cores: so quando ha mais de uma; img = mockup proprio da cor (sem img, a cor aparece no mesmo mockup). Ampliacao so da camisa preta. */
+  { cl:1, id:"maosanta",   nome:"MÃO SANTA",    costas:[51,42,45,27],  frente:[12,31,32,9] },
+  { cl:1, id:"samurai",    nome:"SAMURAI DE QUINTINO", costas:[10,10,50,33], frente:[80,27,16,8], cores:[PRETA,{n:"Branca",k:"#fff"}] },
+  { cl:1, id:"zico10",     nome:"ZICO 10",      costas:[12,17,43,24],  frente:[81,27,13,8], cores:[PRETA,{n:"Cinza chumbo",k:"#555"}] },
+  { cl:1, id:"flakurt",    nome:"FLAKURT",      costas:[9,14,62,41],   frente:[77,68,17,11] },
+  { cl:1, id:"pulgar",     nome:"PULGAR",       costas:[10,18,50,30],  frente:[55,68,30,10] },
+  { cl:1, id:"tetra",      nome:"TETRA",        costas:[8,26,47,33],   frente:[77,38,18,10] },
+  { cl:1, id:"paqueta",    nome:"PAQUETÁ",      costas:[7,17,53,37],   frente:[54,70,34,9] },
+  { cl:1, id:"nmnd",       nome:"NINGUÉM MORRE NOS DEVENDO", costas:[12,13,43,34], frente:[74,66,20,8] },
+  { cl:1, id:"time25",     nome:"TIME 2025",    costas:[9,11,47,35],   frente:[81,28,13,7], cores:[PRETA,{n:"Vermelha",k:"#d61820"}] },
+  { cl:1, id:"bob",        nome:"BOB",          costas:[5,24,47,36],   frente:[83,38,13,10] },
+  { cl:1, id:"otopatamar", nome:"OTOPATAMAR",   costas:[7,26,45,32],   frente:[80,36,17,9] },
+  { cl:1, id:"ozzy",       nome:"OZZY",         costas:[13,22,38,41],  frente:[79,39,14,7] },
+  { cl:1, id:"mussum",     nome:"MUSSUM",       costas:[10,25,41,30],  frente:[79,39,14,7] },
+  { cl:1, id:"adriano",    nome:"ADRIANO",      costas:[10,16,41,30],  frente:[81,27,15,9], cores:[PRETA,{n:"Vermelha",k:"#d61820"},{n:"Branca",k:"#fff"}] },
+  { cl:1, id:"pet",        nome:"PET",          costas:[11,29,36,28],  frente:[79,35,13,6] },
+  { cl:1, id:"quatroxcinco", nome:"4x5",        costas:[9,29,40,21],   frente:[77,36,15,6] },
+  { cl:1, id:"luizfilipe", nome:"LUIZ FILIPE",  costas:[5,27,48,23],   frente:[79,34,16,8] },
+  { cl:1, id:"camisa10",   nome:"CAMISA 10",    costas:[9,29,43,31],   frente:[77,39,13,5] },
+  { cl:1, id:"copa87",     nome:"87",           costas:[9,27,45,15],   frente:[80,41,15,6] },
+  { cl:1, id:"maestrojr",  nome:"MAESTRO JR.",  costas:[9,11,43,40],   frente:[77,27,18,12], cores:[PRETA,{n:"Vermelha",k:"#d61820"},{n:"Branca",k:"#fff"}] },
+  { cl:1, id:"leandro",    nome:"LEANDRO",      costas:[10,16,42,35],  frente:[79,27,16,10], cores:[PRETA,{n:"Branca",k:"#fff"}] },
+  { cl:1, id:"rataria",    nome:"RATARIA WEAR", costas:[9,24,40,31],   frente:[81,39,14,7] },
 ];
 const TAMANHOS = [["PP",46,65],["P",49,67],["M",52,69],["G",55,71],["GG",58,73],["G1",61,75],["G3",65,78]];
 /* -------------------------------- */
 const stage = document.getElementById('stage');
 const vend = new URLSearchParams(location.search).get('v');
 const fone = WHATS[vend] ?? WHATS.padrao;
-let atual = null, tamanho = null, ultima = 'capa';
+let atual = null, tamanho = null, cor = null, ultima = 'capa';
+const NOVAS = ESTAMPAS.filter(e=>!e.cl), CLAS = ESTAMPAS.filter(e=>e.cl);
 
-ESTAMPAS.forEach((e,i)=>{
-  const next = i===ESTAMPAS.length-1 ? '#capa' : '#'+ESTAMPAS[i+1].id;
-  const dots = ESTAMPAS.map((_,j)=>`<i class="${j===i?'on':''}"></i>`).join('');
+[NOVAS,CLAS].forEach(grp=>grp.forEach((e,i)=>{
+  const cl=!!e.cl, n=grp.length, idx=ESTAMPAS.indexOf(e);
+  const prev = i===0 ? (cl?'#classicos':'#capa') : '#'+grp[i-1].id;
+  const next = i===n-1 ? (cl?'#classicos':'#capa') : '#'+grp[i+1].id;
+  const marca = cl ? `<span>${i+1} / ${n}</span>` : `<span class="dots">${grp.map((_,j)=>`<i class="${j===i?'on':''}"></i>`).join('')}</span>`;
   const s = document.createElement('section');
-  s.className='page'; s.id=e.id; s.dataset.prev = i===0 ? '#capa' : '#'+ESTAMPAS[i-1].id; s.dataset.next=next;
-  s.innerHTML = `<img class="bg" src="img/${e.id}.jpg" alt="${e.nome}">
-    <div class="top"><span>${e.nome}</span><span class="dots">${dots}</span></div>
-    <div class="zhint">TOQUE NA ESTAMPA PARA AMPLIAR</div>
+  s.className='page'; s.id=e.id; s.dataset.prev=prev; s.dataset.next=next;
+  s.innerHTML = `<img class="bg" id="bg-${e.id}" data-src="img/${e.id}.jpg" alt="${e.nome}">
+    <div class="top"><span>${e.nome}</span>${marca}</div>
+    <button class="zhint" type="button" data-z="costas" data-id="${e.id}">TOQUE NA ESTAMPA PARA AMPLIAR</button>
     <button class="zhot back" type="button" data-z="costas" data-id="${e.id}" aria-label="Ampliar estampa das costas" style="left:${e.costas[0]}%;top:${e.costas[1]}%;width:${e.costas[2]}%;height:${e.costas[3]}%"></button>
     <button class="zhot" type="button" data-z="frente" data-id="${e.id}" aria-label="Ampliar estampa da frente" style="left:${e.frente[0]}%;top:${e.frente[1]}%;width:${e.frente[2]}%;height:${e.frente[3]}%"></button>
     <div class="bar">
-      <a class="btn" href="#capa" aria-label="Voltar à capa">← CAPA</a>
-      <button class="btn buy" type="button" data-e="${i}">QUERO ESTA</button>
-      <a class="btn" href="${next}" aria-label="Próxima estampa">${i===ESTAMPAS.length-1?'FIM ›':'PRÓXIMA →'}</a>
+      <a class="btn" href="${cl?'#classicos':'#capa'}" aria-label="${cl?'Voltar à lista':'Voltar à capa'}">${cl?'← LISTA':'← CAPA'}</a>
+      <button class="btn buy" type="button" data-e="${idx}">QUERO ESTA</button>
+      <a class="btn" href="${next}" aria-label="Próxima estampa">${i===n-1?(cl?'LISTA ›':'FIM ›'):'PRÓXIMA →'}</a>
     </div>`;
   stage.appendChild(s);
-});
+}));
+document.getElementById('lista').innerHTML = CLAS.map(e=>`<a href="#${e.id}"><img loading="lazy" src="img/t_${e.id}.webp" alt=""><span>${e.nome}</span></a>`).join('');
+function carrega(id){ const im=document.querySelector('#'+id+' img.bg'); if(im&&!im.getAttribute('src')) im.src=im.dataset.src; }
 
 const rows = document.getElementById('rows');
 TAMANHOS.forEach(([t,a,b])=>{ const tr=document.createElement('tr'); tr.dataset.t=t; tr.innerHTML=`<td>${t}</td><td>${a}</td><td>${b}</td>`; rows.appendChild(tr); });
@@ -244,7 +300,7 @@ TAMANHOS.forEach(([t])=>{ const b=document.createElement('button'); b.type='butt
   b.onclick=()=>{ tamanho=t; chips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',String(c===b))); habilitaAdd(); }; chips.appendChild(b); });
 const REAL=n=>'R$ '+n.toFixed(2).replace('.',',');
 const PRECO=100;
-let sacola=[]; try{ sacola=JSON.parse(localStorage.getItem('rataria_sacola')||'[]').filter(x=>ESTAMPAS.some(e=>e.id===x.id)&&TAMANHOS.some(t=>t[0]===x.t)&&x.q>0); }catch(_){ }
+let sacola=[]; try{ sacola=JSON.parse(localStorage.getItem('rataria_sacola')||'[]').filter(x=>{ const e=ESTAMPAS.find(y=>y.id===x.id); return e&&TAMANHOS.some(t=>t[0]===x.t)&&x.q>0&&(!x.c||(e.cores||[]).some(c=>c.n===x.c)); }); }catch(_){ }
 const salva=()=>{ try{ localStorage.setItem('rataria_sacola',JSON.stringify(sacola)); }catch(_){ } };
 const bagbtn=document.getElementById('bagbtn'), bagn=document.getElementById('bagn'), baglist=document.getElementById('baglist');
 const qtd=()=>sacola.reduce((a,x)=>a+x.q,0);
@@ -256,7 +312,7 @@ function desenhaSacola(){
   document.getElementById('bagempty').hidden=n>0; document.getElementById('bagtot').hidden=n===0;
   document.getElementById('bagval').textContent=REAL(n*PRECO);
   baglist.innerHTML=sacola.map((x,i)=>{ const e=ESTAMPAS.find(y=>y.id===x.id);
-    return `<div class="item"><div class="nm">${e.nome}<small>TAMANHO ${x.t} · ${REAL(PRECO)}</small></div><div class="qty"><button type="button" data-q="${i}" data-d="-1" aria-label="Tirar uma">${x.q===1?'×':'−'}</button><span>${x.q}</span><button type="button" data-q="${i}" data-d="1" aria-label="Mais uma">+</button></div></div>`; }).join('');
+    return `<div class="item"><div class="nm">${e.nome}<small>${x.c?x.c.toUpperCase()+' · ':''}TAMANHO ${x.t} · ${REAL(PRECO)}</small></div><div class="qty"><button type="button" data-q="${i}" data-d="-1" aria-label="Tirar uma">${x.q===1?'×':'−'}</button><span>${x.q}</span><button type="button" data-q="${i}" data-d="1" aria-label="Mais uma">+</button></div></div>`; }).join('');
   atualizaLink();
 }
 baglist.addEventListener('click',e=>{ const b=e.target.closest('[data-q]'); if(!b) return; const x=sacola[+b.dataset.q]; x.q+=+b.dataset.d;
@@ -276,22 +332,30 @@ cepEl.addEventListener('input',()=>{
 function atualizaLink(){
   if(!sacola.length||!cep){ sgo.setAttribute('aria-disabled','true'); sgo.removeAttribute('href'); return; }
   const cp=cep.slice(0,5)+'-'+cep.slice(5), n=qtd();
-  const itens=sacola.map(x=>`${x.q}x ${ESTAMPAS.find(y=>y.id===x.id).nome}, tamanho ${x.t}`).join('\n');
+  const itens=sacola.map(x=>`${x.q}x ${ESTAMPAS.find(y=>y.id===x.id).nome}${x.c?', cor '+x.c.toLowerCase():''}, tamanho ${x.t}`).join('\n');
   const msg=encodeURIComponent(`Oi! Vi o catálogo e quero:\n${itens}\nTotal: ${REAL(n*PRECO)}\nCEP de entrega: ${cp}${local?' ('+local+')':''}.`);
   sgo.href=`https://wa.me/${fone}?text=${msg}`; sgo.setAttribute('aria-disabled','false');
 }
 const sadd=document.getElementById('sadd'), sconf=document.getElementById('sconf');
-function habilitaAdd(){ sadd.setAttribute('aria-disabled',String(!tamanho)); }
-sadd.onclick=()=>{ if(!tamanho) return; const x=sacola.find(y=>y.id===atual.id&&y.t===tamanho); if(x) x.q++; else sacola.push({id:atual.id,t:tamanho,q:1});
+const cchips=document.getElementById('cchips'), corLbl=document.getElementById('cor-lbl');
+const multi=()=>!!atual&&(atual.cores||[]).length>1;
+function habilitaAdd(){ sadd.setAttribute('aria-disabled',String(!(tamanho&&(!multi()||cor)))); }
+function trocaImg(e,c){ const im=document.getElementById('bg-'+e.id), pg=document.getElementById(e.id); if(!im) return;
+  const u = c&&c.img ? `img/${c.img}.jpg` : `img/${e.id}.jpg`; if(im.getAttribute('src')!==u) im.src=u; pg.classList.toggle('nozoom',!!(c&&c.img)); }
+sadd.onclick=()=>{ if(!tamanho||(multi()&&!cor)) return; const c=cor||''; const x=sacola.find(y=>y.id===atual.id&&y.t===tamanho&&(y.c||'')===c); if(x) x.q++; else sacola.push({id:atual.id,t:tamanho,c,q:1});
   salva(); desenhaSacola(); mostraConf(true); };
-function mostraConf(on){ sconf.hidden=!on; chips.hidden=on; document.getElementById('sh-lbl').hidden=on; sadd.closest('.row').hidden=on; }
+function mostraConf(on){ sconf.hidden=!on; chips.hidden=on; cchips.hidden=on||!multi(); corLbl.hidden=on||!multi(); document.getElementById('sh-lbl').hidden=on; sadd.closest('.row').hidden=on; }
 document.getElementById('soutra').onclick=()=>{ fecha(); location.hash='capa'; };
 document.getElementById('sfim').onclick=()=>{ fecha(); location.hash='sacola'; };
 bagbtn.onclick=()=>{ location.hash='sacola'; };
 function abre(i){ atual=ESTAMPAS[i]; ultima=atual.id; document.getElementById('sh-title').textContent=atual.nome;
-  tamanho=null; chips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false')); habilitaAdd(); mostraConf(false);
+  tamanho=null; cor=null; chips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+  cchips.innerHTML=''; if(multi()) atual.cores.forEach(c=>{ const b=document.createElement('button'); b.type='button'; b.className='chip'; b.setAttribute('aria-pressed','false');
+    b.innerHTML=`<span class="dot" style="background:${c.k}"></span>${c.n}`;
+    b.onclick=()=>{ cor=c.n; cchips.querySelectorAll('.chip').forEach(z=>z.setAttribute('aria-pressed',String(z===b))); trocaImg(atual,c); habilitaAdd(); }; cchips.appendChild(b); });
+  habilitaAdd(); mostraConf(false);
   sheet.classList.add('on'); sheet.setAttribute('aria-hidden','false'); }
-function fecha(){ sheet.classList.remove('on'); sheet.setAttribute('aria-hidden','true'); }
+function fecha(){ sheet.classList.remove('on'); sheet.setAttribute('aria-hidden','true'); if(atual) trocaImg(atual,null); }
 stage.addEventListener('click',e=>{ const b=e.target.closest('[data-e]'); if(b) abre(+b.dataset.e); });
 document.getElementById('sx').onclick=fecha;
 sheet.addEventListener('click',e=>{ if(e.target===sheet) fecha(); });
@@ -299,14 +363,14 @@ document.getElementById('stab').onclick=()=>{ fecha(); marca(); location.hash='t
 document.getElementById('tvolta').onclick=()=>{ location.hash=ultima; };
 
 const arts = document.getElementById('arts'), who = document.getElementById('who');
-const SLOTS = [{l:17,t:36,w:66,h:82},{l:7.5,t:126,w:27,h:36},{l:36.5,t:126,w:27,h:36},{l:65.5,t:126,w:27,h:36}];
+const SLOTS = [{l:17,t:28,w:66,h:82},{l:7.5,t:117,w:27,h:36},{l:36.5,t:117,w:27,h:36},{l:65.5,t:117,w:27,h:36}];
 let foco = 0, timer = null, atualId = 'capa';
-ESTAMPAS.forEach((e,i)=>{ const a=document.createElement('a'); a.className='art'; a.href='#'+e.id; a.dataset.i=i; a.setAttribute('aria-label',e.nome);
+NOVAS.forEach((e,i)=>{ const a=document.createElement('a'); a.className='art'; a.href='#'+e.id; a.dataset.i=i; a.setAttribute('aria-label',e.nome);
   a.innerHTML=`<img src="img/arte_${e.id}.webp" alt="${e.nome}" draggable="false">`; arts.appendChild(a); });
 const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const cxy = r => { const q=SLOTS[r]; return {x:q.l+q.w/2, y:q.t+q.h/2, w:q.w, h:q.h}; };
 function setSlot(a,r){ const q=SLOTS[r]; a.style.left=q.l+'cqw'; a.style.top=q.t+'cqw'; a.style.width=q.w+'cqw'; a.style.height=q.h+'cqw'; a.style.zIndex=r===0?2:1; a.dataset.r=r; }
-function layout(anim){ const n=ESTAMPAS.length;
+function layout(anim){ const n=NOVAS.length;
   arts.querySelectorAll('.art').forEach(a=>{
     const old = a.dataset.r===undefined ? null : +a.dataset.r, r=(+a.dataset.i-foco+n)%n;
     setSlot(a,r);
@@ -321,9 +385,9 @@ function layout(anim){ const n=ESTAMPAS.length;
     a.style.zIndex = volta ? 3 : (r===0 ? 2 : 1);
     a.animate(kf,{duration:REDUCE?850:1100,easing:'cubic-bezier(.45,0,.2,1)'}).onfinish=()=>{ a.style.zIndex=r===0?2:1; };
   });
-  if(anim) setTimeout(()=>{ who.textContent = ESTAMPAS[foco].nome; },450); else who.textContent = ESTAMPAS[foco].nome; }
+  if(anim) setTimeout(()=>{ who.textContent = NOVAS[foco].nome; },450); else who.textContent = NOVAS[foco].nome; }
 function agenda(){ clearTimeout(timer);
-  timer=setTimeout(()=>{ if(atualId==='capa'){ foco=(foco+1)%ESTAMPAS.length; layout(true); agenda(); } },7000); }
+  timer=setTimeout(()=>{ if(atualId==='capa'){ foco=(foco+1)%NOVAS.length; layout(true); agenda(); } },5000); }
 stage.addEventListener('pointerdown',()=>{ if(atualId==='capa') agenda(); });
 layout(); agenda();
 
@@ -366,9 +430,12 @@ zwrap.addEventListener('pointerup',zUp); zwrap.addEventListener('pointercancel',
 function show(){
   const id=(location.hash||'#capa').slice(1);
   const alvo=document.getElementById(id)||document.getElementById('capa');
-  const k=ESTAMPAS.findIndex(e=>e.id===atualId);
-  if(alvo.id==='capa'){ if(k>=0){ const nf=(k+1)%ESTAMPAS.length, passo=(nf===(foco+1)%ESTAMPAS.length); foco=nf; layout(passo); } agenda(); } else { clearTimeout(timer); }
-  atualId=alvo.id; fechaZ(); if(ESTAMPAS.some(e=>e.id===alvo.id)) setTimeout(()=>preZoom(alvo.id),500); stage.scrollLeft=0; stage.scrollTop=0;
+  const k=NOVAS.findIndex(e=>e.id===atualId);
+  if(alvo.id==='capa'){ if(k>=0){ const nf=(k+1)%NOVAS.length, passo=(nf===(foco+1)%NOVAS.length); foco=nf; layout(passo); } agenda(); } else { clearTimeout(timer); }
+  atualId=alvo.id; fechaZ();
+  if(alvo.id==='capa') NOVAS.forEach(e=>carrega(e.id));
+  else if(alvo.dataset.next){ carrega(alvo.id); [alvo.dataset.next,alvo.dataset.prev].forEach(h=>{ if(h&&h!=='#capa'&&h!=='#classicos'&&document.getElementById(h.slice(1))) carrega(h.slice(1)); }); }
+ if(ESTAMPAS.some(e=>e.id===alvo.id)) setTimeout(()=>preZoom(alvo.id),500); stage.scrollLeft=0; stage.scrollTop=0;
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p===alvo));
   if(alvo.id!=='tabela') fecha();
   desenhaSacola();
