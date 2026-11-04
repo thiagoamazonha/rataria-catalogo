@@ -6,11 +6,15 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Combo Black Friday Rataria</title>
 <link rel="icon" href="../img/logo.webp">
-<meta property="og:title" content="Combo da Black Friday – veja e escolha">
+<meta property="og:title" content="Responda: combo da Black Friday">
 <meta property="og:description" content="Monte uma sacola, veja o desconto e marque a opção que você prefere.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thiagoamazonha.github.io/rataria-catalogo/combo-black-friday/">
-<meta property="og:image" content="https://thiagoamazonha.github.io/rataria-catalogo/img/og2.jpg">
+<meta property="og:image" content="https://thiagoamazonha.github.io/rataria-catalogo/img/og-combo.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Combo da Black Friday: monte uma sacola e escolha a sua opção">
 <meta property="og:site_name" content="Rataria">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
@@ -91,7 +95,7 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:4
 <header>
   <div class="brand">Rataria · Rubro-Negra</div>
   <h1>Combo da Black Friday</h1>
-  <p class="lead">Veja como o desconto funciona, teste com uma sacola e marque a opção que você prefere. São 4 telas rápidas.</p>
+  <p class="lead">Veja como o desconto funciona, teste com uma sacola e marque a opção que você prefere. São 3 telas rápidas.</p>
   <div class="bar" aria-hidden="true"><i id="prog"></i></div>
   <div class="steps"><span id="stepName">Tela 1 de 4</span><span>Salvo neste aparelho</span></div>
 </header>
@@ -103,6 +107,7 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:4
   <div class="rules">
     <div class="rule"><b>3 preços</b><br>Lançamentos <b>R$ 94,99</b> · As que mais saem <b>R$ 84,99</b> · Estoque a girar <b>R$ 74,99</b>.</div>
     <div class="rule"><b>O combo olha a quantidade de camisas na sacola</b><br>Quanto mais camisas, maior o desconto em cada uma.</div>
+    <div class="rule"><b>Já combinado</b><br>Promoção durante o mês de novembro. Frete grátis em Manaus a partir de 3 camisas.</div>
     <div class="rule"><b>Preço mínimo: R$ 74,99</b><br>Nenhuma camisa sai por menos, para a loja não ficar abaixo do lucro mínimo.</div>
   </div>
 
@@ -138,30 +143,6 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:4
     <div class="chips" id="duv"></div>
     <label for="duvtxt" class="hint">Escreva aqui o que ficou confuso (opcional)</label>
     <textarea id="duvtxt"></textarea>
-  </fieldset>
-</section>
-
-<section class="step" data-name="Outras perguntas">
-  <h2>Mais 3 perguntas</h2>
-  <fieldset class="q">
-    <legend>Período da promoção</legend>
-    <p class="hint">No questionário o início e o fim ficaram em 30/11 (segunda-feira). A Black Friday é na sexta, 27/11.</p>
-    <div class="opts" id="periodo"></div>
-    <label for="peroutro" class="hint">Se for outro, escreva as datas</label>
-    <input type="text" id="peroutro" placeholder="Ex.: 25/11 a 30/11">
-  </fieldset>
-  <fieldset class="q">
-    <legend>Frete</legend>
-    <div class="opts" id="frete"></div>
-    <label for="moto" class="hint">Quanto custa, em média, a moto em Manaus? (em reais)</label>
-    <input type="number" inputmode="decimal" min="0" step="0.01" id="moto" placeholder="Ex.: 15">
-  </fieldset>
-  <fieldset class="q">
-    <legend>Estoque e faixa mais barata</legend>
-    <p class="hint">Você marcou estoque “pouco”, mas 12 clássicas ficaram no preço mais baixo (R$ 74,99).</p>
-    <div class="opts" id="estoque"></div>
-    <label for="estoquetxt" class="hint">Se quiser mudar, quais estampas passam para “as que mais saem”?</label>
-    <textarea id="estoquetxt"></textarea>
   </fieldset>
   <div class="q">
     <label for="quem">Seu nome</label>
@@ -232,18 +213,6 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:4
     ["Subir para R$ 88,99","Mantém os 15% cheios, mas a faixa fica longe das outras"],
     ["Não sei",""]]);
   chips("duv","duv",["Como o desconto é calculado","Misturar estampas na sacola","Por que existe preço mínimo","Qual modelo é melhor para a loja","Como explicar para o cliente"]);
-  opts("periodo","periodo",[
-    ["Só sexta, 27/11","Um dia"],
-    ["27/11 a 30/11","Sexta a segunda (minha sugestão)"],
-    ["Semana inteira, 23/11 a 30/11",""],
-    ["Outro","Escreva abaixo"]]);
-  opts("frete","frete",[
-    ["Sem frete grátis","Segue como hoje: você calcula a moto"],
-    ["Grátis só em Manaus, a partir de 3 camisas",""],
-    ["Outra ideia","Escreva o que prefere"]]);
-  opts("estoque","estoque",[
-    ["Está certo assim",""],
-    ["Quero mudar algumas","Escreva quais abaixo"]]);
 
   // preço unitário de cada faixa conforme modelo, quantidade total e se o estoque conta
   function unit(model,tier,n){
@@ -311,10 +280,6 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:4
     L.push("*Mais saem, levando 3+ (Modelo A):* "+(checked("f2")||"—"));
     var d=checkedAll("duv");
     L.push("*Dúvidas:* "+(d.length?d.join("; "):"—")+($("duvtxt").value.trim()?" | "+$("duvtxt").value.trim():""));
-    L.push("");
-    L.push("*Período:* "+(checked("periodo")||"—")+($("peroutro").value.trim()?" | "+$("peroutro").value.trim():""));
-    L.push("*Frete:* "+(checked("frete")||"—")+($("moto").value?" | moto em Manaus, média R$ "+$("moto").value:""));
-    L.push("*Estoque e faixa barata:* "+(checked("estoque")||"—")+($("estoquetxt").value.trim()?" | "+$("estoquetxt").value.trim():""));
     return L.join("\n");
   }
   function show(n){
