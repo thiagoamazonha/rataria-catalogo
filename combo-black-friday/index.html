@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Combo Black Friday Rataria</title>
+<link rel="icon" href="../img/logo.webp">
+<meta property="og:title" content="Combo da Black Friday – veja e escolha">
+<meta property="og:description" content="Monte uma sacola, veja o desconto e marque a opção que você prefere.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thiagoamazonha.github.io/rataria-catalogo/combo-black-friday/">
+<meta property="og:image" content="https://thiagoamazonha.github.io/rataria-catalogo/img/og2.jpg">
+<meta property="og:site_name" content="Rataria">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{color-scheme:light;
+  --bg:#f6f4f2;--card:#fff;--fg:#17120f;--muted:#6b625c;--line:#ddd6d0;--red:#c8102e;--red-ink:#fff;--ink:#17120f;--ok:#1f7a4d;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--f-body:"Barlow","Segoe UI",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;
+  --bg:#141010;--card:#1f1918;--fg:#f3ece8;--muted:#a89e98;--line:#3a312e;--red:#ee3a52;--red-ink:#140a0c;--ink:#f3ece8;--ok:#4cc58a}}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.45;
+  padding-block:0 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:640px;margin:0 auto}
+header{padding-block:24px 8px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(38px,9vw,52px);line-height:.95;margin:6px 0 10px;text-transform:uppercase;text-wrap:balance}
+.lead{color:var(--muted);margin:0 0 18px;max-width:52ch}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--red);transition:width .3s}
+.steps{display:flex;justify-content:space-between;gap:8px;font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:8px 0 18px}
+section.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 18px;display:none;flex-direction:column;gap:18px}
+section.step.on{display:flex}
+h2{font-family:var(--f-display);font-weight:800;font-size:28px;line-height:1;margin:0;text-transform:uppercase}
+h3{font-family:var(--f-display);font-weight:800;font-size:20px;margin:0;text-transform:uppercase}
+p{margin:0}
+.hint{color:var(--muted);font-size:14px}
+.q{display:flex;flex-direction:column;gap:8px;border:0;padding:0;margin:0;min-width:0}
+.q>legend,.q>label{font-weight:600;padding:0}
+input[type=text],input[type=number],textarea{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:12px;min-height:48px}
+textarea{min-height:92px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible,.opt:focus-within,.chip:focus-within{outline:3px solid var(--red);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip span{display:block;padding:11px 16px;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);font-weight:600;min-height:44px}
+.chip input:checked+span{background:var(--red);border-color:var(--red);color:var(--red-ink)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{position:relative;border:1.5px solid var(--line);border-radius:8px;background:var(--bg)}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opt .t{display:block;padding:12px 14px}
+.opt b{font-family:var(--f-display);font-size:19px;text-transform:uppercase;display:block}
+.opt small{color:var(--muted);font-size:14px;display:block}
+.opt input:checked+.t{background:var(--red);color:var(--red-ink);border-radius:6px}
+.opt input:checked+.t small{color:var(--red-ink);opacity:.9}
+.rules{display:flex;flex-direction:column;gap:8px}
+.rule{border-left:4px solid var(--red);background:var(--bg);padding:10px 12px;border-radius:0 8px 8px 0}
+.rule b{font-family:var(--f-display);text-transform:uppercase;font-size:17px}
+.bag{display:flex;flex-direction:column;gap:8px}
+.line{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px}
+.line .n{font-weight:600}
+.line .n small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:44px;height:44px;border-radius:8px;border:1.5px solid var(--ink);background:transparent;color:var(--fg);font-size:22px;font-weight:700;cursor:pointer;padding:0}
+.qty output{min-width:28px;text-align:center;font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+.cmpg{display:grid;gap:10px;grid-template-columns:1fr}
+.mc{border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;font-variant-numeric:tabular-nums;min-width:0}
+.mc.sel{border-color:var(--red)}
+.mc h4{font-family:var(--f-display);font-weight:800;font-size:18px;text-transform:uppercase;margin:0 0 4px}
+.mc .ln{color:var(--muted);font-size:14px}
+.mc .r{display:flex;justify-content:space-between;gap:10px;padding-top:4px}
+.mc .tot{font-family:var(--f-display);font-weight:800;font-size:26px;line-height:1.1;color:var(--fg)}
+.good{color:var(--ok);font-weight:700}
+.nav{display:flex;gap:10px;margin-top:16px}
+button.nv{font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;min-height:48px;border-radius:8px;border:1.5px solid var(--ink);background:transparent;color:var(--fg);padding:0 20px;cursor:pointer}
+button.go{background:var(--red);border-color:var(--red);color:var(--red-ink);flex:1}
+.summary{white-space:pre-wrap;background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:14px;font-size:15px;max-height:420px;overflow:auto}
+.send{display:flex;flex-wrap:wrap;gap:10px}
+a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:8px;background:var(--ink);color:var(--bg);text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+.note{font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">Rataria · Rubro-Negra</div>
+  <h1>Combo da Black Friday</h1>
+  <p class="lead">Veja como o desconto funciona, teste com uma sacola e marque a opção que você prefere. São 4 telas rápidas.</p>
+  <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+  <div class="steps"><span id="stepName">Tela 1 de 4</span><span>Salvo neste aparelho</span></div>
+</header>
+
+<form id="f" autocomplete="off">
+
+<section class="step on" data-name="Entender">
+  <h2>Como o combo funciona</h2>
+  <div class="rules">
+    <div class="rule"><b>3 preços</b><br>Lançamentos <b>R$ 94,99</b> · As que mais saem <b>R$ 84,99</b> · Estoque a girar <b>R$ 74,99</b>.</div>
+    <div class="rule"><b>O combo olha a quantidade de camisas na sacola</b><br>Quanto mais camisas, maior o desconto em cada uma.</div>
+    <div class="rule"><b>Preço mínimo: R$ 74,99</b><br>Nenhuma camisa sai por menos, para a loja não ficar abaixo do lucro mínimo.</div>
+  </div>
+
+  <h3>Teste com uma sacola</h3>
+  <p class="hint">Toque em + e − para montar o pedido do cliente. Os cartões abaixo mostram o total em cada modelo.</p>
+  <div class="bag" id="bag"></div>
+  <div class="cmpg" id="cmp"></div>
+
+  <h3>Os dois modelos de combo</h3>
+  <div class="rules">
+    <div class="rule"><b>Modelo A · Porcentagem</b><br>Levando 2: 10% de desconto. Levando 3 ou mais: 15%. Nas que mais saem, levando 3 ou mais, o preço trava em R$ 74,99. Estoque a girar fica sem desconto.</div>
+    <div class="rule"><b>Modelo B · Preço fixo</b><br>Levando 2: cada lançamento ou “mais saem” sai por R$ 79,99. Levando 3 ou mais: R$ 74,99 cada. Mais simples de falar, mas o lançamento perde mais lucro.</div>
+  </div>
+</section>
+
+<section class="step" data-name="Combo">
+  <h2>Qual combo você prefere?</h2>
+  <fieldset class="q">
+    <legend>1. Modelo do combo</legend>
+    <div class="opts" id="modelo"></div>
+  </fieldset>
+  <fieldset class="q">
+    <legend>2. A camisa de estoque a girar conta na quantidade?</legend>
+    <p class="hint">Ela não recebe desconto. A pergunta é se entra na contagem de 2 ou 3 camisas.</p>
+    <div class="opts" id="conta"></div>
+  </fieldset>
+  <fieldset class="q">
+    <legend>3. Só para o Modelo A: “as que mais saem”, levando 3 ou mais</legend>
+    <div class="opts" id="f2"></div>
+  </fieldset>
+  <fieldset class="q">
+    <legend>4. Ficou alguma dúvida sobre o combo?</legend>
+    <div class="chips" id="duv"></div>
+    <label for="duvtxt" class="hint">Escreva aqui o que ficou confuso (opcional)</label>
+    <textarea id="duvtxt"></textarea>
+  </fieldset>
+</section>
+
+<section class="step" data-name="Outras perguntas">
+  <h2>Mais 3 perguntas</h2>
+  <fieldset class="q">
+    <legend>Período da promoção</legend>
+    <p class="hint">No questionário o início e o fim ficaram em 30/11 (segunda-feira). A Black Friday é na sexta, 27/11.</p>
+    <div class="opts" id="periodo"></div>
+    <label for="peroutro" class="hint">Se for outro, escreva as datas</label>
+    <input type="text" id="peroutro" placeholder="Ex.: 25/11 a 30/11">
+  </fieldset>
+  <fieldset class="q">
+    <legend>Frete</legend>
+    <div class="opts" id="frete"></div>
+    <label for="moto" class="hint">Quanto custa, em média, a moto em Manaus? (em reais)</label>
+    <input type="number" inputmode="decimal" min="0" step="0.01" id="moto" placeholder="Ex.: 15">
+  </fieldset>
+  <fieldset class="q">
+    <legend>Estoque e faixa mais barata</legend>
+    <p class="hint">Você marcou estoque “pouco”, mas 12 clássicas ficaram no preço mais baixo (R$ 74,99).</p>
+    <div class="opts" id="estoque"></div>
+    <label for="estoquetxt" class="hint">Se quiser mudar, quais estampas passam para “as que mais saem”?</label>
+    <textarea id="estoquetxt"></textarea>
+  </fieldset>
+  <div class="q">
+    <label for="quem">Seu nome</label>
+    <input type="text" id="quem" placeholder="Quem está respondendo">
+  </div>
+</section>
+
+<section class="step" data-name="Resumo">
+  <h2>Resumo para enviar</h2>
+  <p class="hint">Confira. Toque em “Copiar” e cole na conversa com o Thiago, ou use o botão do WhatsApp.</p>
+  <div class="summary" id="summary" tabindex="0"></div>
+  <div class="send">
+    <button type="button" class="nv go" id="copy">Copiar resumo</button>
+    <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+  </div>
+  <p class="note" id="copyMsg" role="status"></p>
+  <p class="note">No WhatsApp, escolha o contato do Thiago. Nada é enviado sozinho: só vai quando você tocar em enviar.</p>
+</section>
+
+<div class="nav">
+  <button type="button" class="nv" id="back" hidden>Voltar</button>
+  <button type="button" class="nv go" id="next">Continuar</button>
+</div>
+</form>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var CUSTO=45, PISO=74.99;
+  var TIERS=[{n:"Lançamento",p:94.99},{n:"As que mais saem",p:84.99},{n:"Estoque a girar",p:74.99}];
+  var qty=[1,1,1];
+  var KEY="rataria_combo_bf_v1";
+  function r2(x){return Math.round(x*100)/100}
+  function brl(v){return "R$ "+v.toFixed(2).replace(".",",")}
+  function checked(name){var e=document.querySelector("input[name="+name+"]:checked");return e?e.value:""}
+  function checkedAll(name){return [].slice.call(document.querySelectorAll("input[name="+name+"]:checked")).map(function(e){return e.value})}
+
+  function opts(id,name,items,type){
+    items.forEach(function(it){
+      var l=document.createElement("label");l.className="opt";
+      var i=document.createElement("input");i.type=type||"radio";i.name=name;i.value=it[0];
+      var t=document.createElement("span");t.className="t";
+      var b=document.createElement("b");b.textContent=it[0];t.appendChild(b);
+      if(it[1]){var s=document.createElement("small");s.textContent=it[1];t.appendChild(s)}
+      l.appendChild(i);l.appendChild(t);$(id).appendChild(l);
+    });
+  }
+  function chips(id,name,items){
+    items.forEach(function(v){
+      var l=document.createElement("label");l.className="chip";
+      var i=document.createElement("input");i.type="checkbox";i.name=name;i.value=v;
+      var s=document.createElement("span");s.textContent=v;
+      l.appendChild(i);l.appendChild(s);$(id).appendChild(l);
+    });
+  }
+  opts("modelo","modelo",[
+    ["Modelo A · Porcentagem","10% levando 2, 15% levando 3 ou mais (com piso de R$ 74,99)"],
+    ["Modelo B · Preço fixo","R$ 79,99 cada levando 2; R$ 74,99 cada levando 3 ou mais"],
+    ["Sem combo","Só os 3 preços, sem desconto por quantidade"],
+    ["Outra ideia","Escreva na dúvida abaixo"]]);
+  opts("conta","conta",[
+    ["Conta na quantidade","Ajuda o cliente a chegar em 3 camisas"],
+    ["Não conta","Só contam lançamentos e as que mais saem"],
+    ["Tanto faz",""]]);
+  opts("f2","f2",[
+    ["Trava em R$ 74,99","Desconto de 11,8% em vez de 15%"],
+    ["Subir para R$ 88,99","Mantém os 15% cheios, mas a faixa fica longe das outras"],
+    ["Não sei",""]]);
+  chips("duv","duv",["Como o desconto é calculado","Misturar estampas na sacola","Por que existe preço mínimo","Qual modelo é melhor para a loja","Como explicar para o cliente"]);
+  opts("periodo","periodo",[
+    ["Só sexta, 27/11","Um dia"],
+    ["27/11 a 30/11","Sexta a segunda (minha sugestão)"],
+    ["Semana inteira, 23/11 a 30/11",""],
+    ["Outro","Escreva abaixo"]]);
+  opts("frete","frete",[
+    ["Sem frete grátis","Segue como hoje: você calcula a moto"],
+    ["Grátis só em Manaus, a partir de 3 camisas",""],
+    ["Outra ideia","Escreva o que prefere"]]);
+  opts("estoque","estoque",[
+    ["Está certo assim",""],
+    ["Quero mudar algumas","Escreva quais abaixo"]]);
+
+  // preço unitário de cada faixa conforme modelo, quantidade total e se o estoque conta
+  function unit(model,tier,n){
+    var p=TIERS[tier].p;
+    if(tier===2||n<2)return p;
+    if(model==="A"){
+      var pct=n>=3?0.15:0.10;
+      return Math.max(r2(p*(1-pct)),PISO);
+    }
+    if(model==="B")return n>=3?PISO:79.99;
+    return p;
+  }
+  function countStock(){return checked("conta")!=="Não conta"}
+  function bagN(){var n=qty[0]+qty[1]+(countStock()?qty[2]:0);return n}
+  function calc(model){
+    var n=bagN(),tot=0;
+    for(var i=0;i<3;i++)tot+=r2(unit(model,i,n)*qty[i]);
+    return r2(tot);
+  }
+  function lineText(model,i){
+    if(!qty[i])return null;
+    return qty[i]+" × "+brl(unit(model,i,bagN()));
+  }
+  function renderBag(){
+    var b=$("bag");b.innerHTML="";
+    TIERS.forEach(function(t,i){
+      var d=document.createElement("div");d.className="line";
+      d.innerHTML='<div class="n">'+t.n+'<small>'+brl(t.p)+' cada</small></div>'+
+        '<div class="qty"><button type="button" data-i="'+i+'" data-d="-1" aria-label="Menos uma camisa: '+t.n+'">−</button>'+
+        '<output aria-live="polite">'+qty[i]+'</output>'+
+        '<button type="button" data-i="'+i+'" data-d="1" aria-label="Mais uma camisa: '+t.n+'">+</button></div>';
+      b.appendChild(d);
+    });
+    var base=0,total=qty[0]+qty[1]+qty[2];
+    for(var i=0;i<3;i++)base+=r2(TIERS[i].p*qty[i]);
+    var A=calc("A"),B=calc("B");
+    var tb=$("cmp");
+    function lines(m){var o=[];for(var i=0;i<3;i++){var t=lineText(m,i);if(t)o.push(t)}return o.join(" · ")||"—"}
+    function card(titulo,m,tot){
+      var eco=r2(base-tot);
+      return '<div class="mc'+(checked("modelo").indexOf("Modelo "+m)===0?' sel':'')+'"><h4>'+titulo+'</h4>'+
+        '<div class="ln">'+lines(m)+'</div>'+
+        '<div class="r"><span>Total do cliente</span><span class="tot">'+brl(tot)+'</span></div>'+
+        '<div class="r"><span>Cliente economiza</span><span class="'+(eco>0?'good':'')+'">'+(eco>0?brl(eco):'—')+'</span></div>'+
+        '<div class="r"><span>Lucro da loja</span><span>'+brl(r2(tot-CUSTO*total))+'</span></div></div>';
+    }
+    tb.innerHTML=total?(card("Sem combo","0",base)+card("Modelo A · Porcentagem","A",A)+card("Modelo B · Preço fixo","B",B)):'<p class="hint">Adicione camisas para ver o resultado.</p>';
+  }
+  $("bag").addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;
+    var i=+b.dataset.i,d=+b.dataset.d;
+    qty[i]=Math.max(0,Math.min(9,qty[i]+d));
+    renderBag();save();
+  });
+
+  // navegação
+  var steps=[].slice.call(document.querySelectorAll("section.step")),cur=0;
+  function build(){
+    var L=[];
+    L.push("*Combo Black Friday – respostas*");
+    L.push("Respondido por: "+($("quem").value.trim()||"—"));
+    L.push("");
+    L.push("*Combo:* "+(checked("modelo")||"—"));
+    L.push("*Estoque a girar conta na quantidade:* "+(checked("conta")||"—"));
+    L.push("*Mais saem, levando 3+ (Modelo A):* "+(checked("f2")||"—"));
+    var d=checkedAll("duv");
+    L.push("*Dúvidas:* "+(d.length?d.join("; "):"—")+($("duvtxt").value.trim()?" | "+$("duvtxt").value.trim():""));
+    L.push("");
+    L.push("*Período:* "+(checked("periodo")||"—")+($("peroutro").value.trim()?" | "+$("peroutro").value.trim():""));
+    L.push("*Frete:* "+(checked("frete")||"—")+($("moto").value?" | moto em Manaus, média R$ "+$("moto").value:""));
+    L.push("*Estoque e faixa barata:* "+(checked("estoque")||"—")+($("estoquetxt").value.trim()?" | "+$("estoquetxt").value.trim():""));
+    return L.join("\n");
+  }
+  function show(n){
+    cur=n;
+    steps.forEach(function(s,i){s.classList.toggle("on",i===n)});
+    $("prog").style.width=((n+1)/steps.length*100)+"%";
+    $("stepName").textContent="Tela "+(n+1)+" de "+steps.length+" · "+steps[n].dataset.name;
+    $("back").hidden=n===0;$("next").hidden=n===steps.length-1;
+    if(n===steps.length-1){var t=build();$("summary").textContent=t;$("wa").href="https://wa.me/?text="+encodeURIComponent(t)}
+    renderBag();window.scrollTo(0,0);
+  }
+  $("next").addEventListener("click",function(){if(cur<steps.length-1)show(cur+1)});
+  $("back").addEventListener("click",function(){if(cur>0)show(cur-1)});
+  $("copy").addEventListener("click",function(){
+    var t=$("summary").textContent,m=$("copyMsg");
+    function fb(){var r=document.createRange();r.selectNodeContents($("summary"));var s=window.getSelection();s.removeAllRanges();s.addRange(r);m.textContent="Não consegui copiar sozinho. O texto está selecionado: segure e escolha Copiar."}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){m.textContent="Resumo copiado. Cole na conversa com o Thiago."},fb)}else fb();
+  });
+
+  function save(){
+    try{
+      var d={f:{},c:{},q:qty};
+      [].slice.call(document.querySelectorAll("#f input[id],#f textarea[id]")).forEach(function(e){d.f[e.id]=e.value});
+      [].slice.call(document.querySelectorAll("#f input[type=checkbox]:checked,#f input[type=radio]:checked")).forEach(function(e){(d.c[e.name]=d.c[e.name]||[]).push(e.value)});
+      localStorage.setItem(KEY,JSON.stringify(d));
+    }catch(e){}
+  }
+  function load(){
+    try{
+      var d=JSON.parse(localStorage.getItem(KEY)||"null");if(!d)return;
+      if(d.q&&d.q.length===3)qty=d.q;
+      Object.keys(d.f).forEach(function(id){if($(id))$(id).value=d.f[id]});
+      Object.keys(d.c).forEach(function(n){d.c[n].forEach(function(v){
+        var e=document.querySelector("input[name="+n+"][value=\""+v.replace(/"/g,'\\"')+"\"]");if(e)e.checked=true})});
+    }catch(e){}
+  }
+  $("f").addEventListener("change",function(){save();renderBag()});
+  $("f").addEventListener("input",save);
+  $("f").addEventListener("submit",function(e){e.preventDefault()});
+  load();show(0);
+})();
+</script>
+</body>
+</html>
