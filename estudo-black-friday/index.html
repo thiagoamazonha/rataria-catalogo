@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../img/logo.webp">
+<meta property="og:title" content="Black Friday Rataria – responda em 5 minutos">
+<meta property="og:description" content="Toque nos botões e envie o resumo pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thiagoamazonha.github.io/rataria-catalogo/estudo-black-friday/">
+<meta property="og:image" content="https://thiagoamazonha.github.io/rataria-catalogo/img/og2.jpg">
+<meta property="og:site_name" content="Rataria">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{color-scheme:light}html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><title>Black Friday Rataria</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: uma pergunta-bloco por etapa, barra de progresso preta e vermelha no topo, resumo final pronto para enviar */
+:root{
+  --bg:#f6f4f2; --card:#ffffff; --fg:#17120f; --muted:#6b625c; --line:#ddd6d0;
+  --red:#c8102e; --red-ink:#ffffff; --ink:#17120f; --ok:#1f7a4d; --warn:#b26a00;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow","Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141010; --card:#1f1918; --fg:#f3ece8; --muted:#a89e98; --line:#3a312e;
+  --red:#ee3a52; --red-ink:#140a0c; --ink:#f3ece8; --ok:#4cc58a; --warn:#e5a03a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141010; --card:#1f1918; --fg:#f3ece8; --muted:#a89e98; --line:#3a312e;
+  --red:#ee3a52; --red-ink:#140a0c; --ink:#f3ece8; --ok:#4cc58a; --warn:#e5a03a; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.45;
+  padding-block:0 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+*{box-sizing:border-box}
+.wrap{max-width:640px;margin:0 auto}
+header{padding-block:24px 8px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(38px,9vw,52px);line-height:.95;margin:6px 0 10px;text-transform:uppercase;text-wrap:balance}
+.lead{color:var(--muted);margin:0 0 18px;max-width:52ch}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--red);transition:width .3s}
+.steps{display:flex;justify-content:space-between;font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:8px 0 18px}
+section.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 18px;display:none;flex-direction:column;gap:20px}
+section.step.on{display:flex}
+h2{font-family:var(--f-display);font-weight:800;font-size:28px;line-height:1;margin:0;text-transform:uppercase}
+.q{display:flex;flex-direction:column;gap:8px;border:0;padding:0;margin:0;min-width:0}
+.q>label,.q>legend{font-weight:600;padding:0}
+.hint{color:var(--muted);font-size:14px;margin:0}
+input[type=text],input[type=number],input[type=date],textarea,select{
+  width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:12px;min-height:48px}
+textarea{min-height:92px;resize:vertical}
+input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,.chip:focus-within{outline:3px solid var(--red);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip span{display:block;padding:11px 16px;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);font-weight:600;min-height:44px}
+.chip input:checked+span{background:var(--red);border-color:var(--red);color:var(--red-ink)}
+.chip.rad input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.money{display:grid;grid-template-columns:1fr 130px;gap:10px;align-items:center}
+.money label{font-weight:500}
+.money .in{position:relative}
+.money .in b{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600}
+.money .in input{padding-left:38px;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);padding-top:10px;font-family:var(--f-display);font-weight:800;font-size:22px;text-transform:uppercase}
+.total output{font-variant-numeric:tabular-nums;color:var(--red)}
+.tier{border:1.5px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tier h3{font-family:var(--f-display);font-weight:800;font-size:20px;margin:0;text-transform:uppercase}
+.tier.top{border-color:var(--red)}
+.tier .calc{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tier .calc strong{color:var(--fg)}
+.calc .good{color:var(--ok)} .calc .low{color:var(--warn)}
+.nav{display:flex;gap:10px;margin-top:16px}
+button{font:inherit;font-weight:700;min-height:48px;border-radius:8px;border:1.5px solid var(--ink);background:transparent;color:var(--fg);padding:0 20px;cursor:pointer;font-family:var(--f-display);font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+button.go{background:var(--red);border-color:var(--red);color:var(--red-ink);flex:1}
+button[hidden]{display:none}
+.summary{white-space:pre-wrap;background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:14px;font-size:15px;max-height:360px;overflow:auto}
+.send{display:flex;flex-wrap:wrap;gap:10px}
+a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:8px;background:var(--ink);color:var(--bg);text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+.note{font-size:14px;color:var(--muted)}
+@media (max-width:420px){.money{grid-template-columns:1fr 112px}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="brand">Rataria · Rubro-Negra</div>
+  <h1>Estudo de preços da Black Friday</h1>
+  <p class="lead">São 6 etapas rápidas. Responda do jeito que souber; onde não souber, deixe em branco ou marque “não sei”. No fim você envia o resumo para o Thiago.</p>
+  <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+  <div class="steps"><span id="stepName">Etapa 1 de 5</span><span id="saved">Salvo neste aparelho</span></div>
+</header>
+
+<form id="f" autocomplete="off">
+
+<section class="step on" data-name="Clássicas">
+  <h2>Quais clássicas mais saem?</h2>
+  <p class="hint"><strong>Lançamentos (Faixa 1, preço mais alto):</strong> Arrasca, Chama o Samu, Jorginho e Romário, as estampas da capa.</p>
+  <fieldset class="q">
+    <legend>Marque as clássicas que mais saem (ficam na Faixa 2, a do meio)</legend>
+    <div class="chips" id="mais"></div>
+  </fieldset>
+  <fieldset class="q">
+    <legend>O estoque das estampas antigas é grande?</legend>
+    <div class="chips" id="estoque"></div>
+    <p class="hint">Estampa com muito estoque parado costuma ir para a faixa mais barata.</p>
+  </fieldset>
+</section>
+
+<section class="step" data-name="Custos">
+  <h2>Quanto custa cada camisa?</h2>
+  <p class="hint">Valores por unidade, em reais. Se não souber o detalhe, preencha só o total na última linha.</p>
+  <div class="q">
+    <div class="money"><label for="c_malha">Malha e confecção</label><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="c_malha" class="cost"></div></div>
+    <div class="money"><label for="c_estampa">Estampa (silk, DTF, sublimação)</label><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="c_estampa" class="cost"></div></div>
+    <div class="money"><label for="c_emb">Etiqueta e embalagem</label><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="c_emb" class="cost"></div></div>
+    <div class="money"><label for="c_out">Outros (taxa de cartão, anúncio, comissão)</label><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="c_out" class="cost"></div></div>
+    <div class="total"><span>Custo por camisa</span><output id="custo">R$ 0,00</output></div>
+  </div>
+  <div class="q">
+    <label for="c_total">Não sabe o detalhe? Informe só o custo total por camisa</label>
+    <div class="money"><span class="hint">Usado se as linhas acima estiverem vazias</span><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="c_total"></div></div>
+  </div>
+</section>
+
+<section class="step" data-name="Limites">
+  <h2>Até onde dá para baixar?</h2>
+  <div class="q">
+    <label for="lucro_min">Lucro mínimo por camisa que você aceita</label>
+    <div class="money"><span class="hint">Em reais</span><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="lucro_min"></div></div>
+  </div>
+  <div class="q">
+    <label for="preco_piso">Preço mínimo que você não vende abaixo disso</label>
+    <div class="money"><span class="hint">Piso da promoção</span><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="preco_piso"></div></div>
+  </div>
+  <fieldset class="q">
+    <legend>Pode haver combo (levar mais, pagar menos por peça)?</legend>
+    <div class="chips" id="combo"></div>
+  </fieldset>
+  <fieldset class="q">
+    <legend>Frete na Black Friday</legend>
+    <div class="chips" id="frete"></div>
+    <p class="hint">Hoje o Bruno calcula a taxa da moto em Manaus e informa o frete fora da cidade.</p>
+  </fieldset>
+</section>
+
+<section class="step" data-name="Os 3 valores">
+  <h2>Os 3 valores</h2>
+  <p class="hint">Hoje a camisa custa R$ 100. Informe quanto pensa cobrar em cada faixa. A conta de lucro aparece sozinha.</p>
+  <div class="tier top">
+    <h3>Faixa 1 · Lançamentos (mais cara)</h3>
+    <div class="money"><span class="hint">Preço por camisa</span><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="p1" class="price"></div></div>
+    <div class="calc" id="k1">Preencha o preço para ver o lucro.</div>
+  </div>
+  <div class="tier">
+    <h3>Faixa 2 · As que mais saem (meio)</h3>
+    <div class="money"><span class="hint">Preço por camisa</span><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="p2" class="price"></div></div>
+    <div class="calc" id="k2">Preencha o preço para ver o lucro.</div>
+  </div>
+  <div class="tier">
+    <h3>Faixa 3 · Estoque a girar (mais barata)</h3>
+    <div class="money"><span class="hint">Preço por camisa</span><div class="in"><b>R$</b><input type="number" inputmode="decimal" min="0" step="0.01" id="p3" class="price"></div></div>
+    <div class="calc" id="k3">Preencha o preço para ver o lucro.</div>
+  </div>
+  <div class="q">
+    <span style="font-weight:600">Quais estampas ficam em cada faixa?</span>
+    <p class="hint"><strong>Faixa 1 · Lançamentos:</strong> Arrasca, Chama o Samu, Jorginho e Romário (as da capa).</p>
+    <p class="hint" id="f2list"></p>
+  </div>
+  <fieldset class="q">
+    <legend>Faixa 3 · Quais clássicas vão para o estoque a girar (mais barata)?</legend>
+    <div class="chips" id="fx3"></div>
+    <p class="hint">As clássicas que você não marcar aqui nem como “mais saem” o Thiago encaixa junto com você depois.</p>
+  </fieldset>
+  <fieldset class="q">
+    <legend>Prefere que o Thiago sugira os valores?</legend>
+    <div class="chips" id="sugere"></div>
+  </fieldset>
+</section>
+
+<section class="step" data-name="Metas">
+  <h2>Prazo e metas</h2>
+  <div class="q">
+    <label for="d_ini">Quando a promoção começa e termina?</label>
+    <div class="money"><span class="hint">Início</span><input type="date" id="d_ini"></div>
+    <div class="money"><span class="hint">Fim</span><input type="date" id="d_fim"></div>
+  </div>
+  <div class="q">
+    <label for="meta">Meta de camisas vendidas na campanha</label>
+    <input type="number" inputmode="numeric" min="0" id="meta" placeholder="Ex.: 150">
+  </div>
+  <div class="q">
+    <label for="conc">Viu preços de concorrentes ou de outras lojas de torcida?</label>
+    <textarea id="conc" placeholder="Nome da loja e valor, se lembrar"></textarea>
+  </div>
+  <div class="q">
+    <label for="obs">Mais alguma coisa que o Thiago precisa saber?</label>
+    <textarea id="obs"></textarea>
+  </div>
+  <div class="q">
+    <label for="quem">Seu nome</label>
+    <input type="text" id="quem" placeholder="Quem está respondendo">
+  </div>
+</section>
+
+<section class="step" data-name="Resumo">
+  <h2>Resumo para enviar</h2>
+  <p class="hint">Confira. Toque em “Copiar” e cole a mensagem na conversa com o Thiago, ou use o botão do WhatsApp.</p>
+  <div class="summary" id="summary" tabindex="0"></div>
+  <div class="send">
+    <button type="button" class="go" id="copy">Copiar resumo</button>
+    <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+  </div>
+  <p class="note" id="copyMsg" role="status"></p>
+  <p class="note">No WhatsApp, escolha o contato do Thiago. Nada é enviado sozinho: só vai quando você tocar em enviar.</p>
+</section>
+
+<div class="nav">
+  <button type="button" id="back" hidden>Voltar</button>
+  <button type="button" class="go" id="next">Continuar</button>
+</div>
+</form>
+</div>
+
+<script>
+(function(){
+  var LANC=["Arrasca","Chama o Samu","Jorginho","Romário"];
+  var CLASSICAS=["Mão Santa","Samurai de Quintino","Flakurt","Pulgar","Tetra","Paquetá","Ninguém Morre nos Devendo","Time 2025","Bob","Otopatamar","Ozzy","Mussum","Adriano","Pet","4x5","Filipe Luís","Camisa 10","Zico 10","Copa 87","Maestro Jr","Leandro","Rataria Wear"];
+  var steps=[].slice.call(document.querySelectorAll("section.step"));
+  var cur=0, KEY="rataria_bf_v1";
+  var $=function(id){return document.getElementById(id)};
+
+  function chips(id,items,type,name){
+    var box=$(id);
+    items.forEach(function(t){
+      var l=document.createElement("label");l.className="chip"+(type==="radio"?" rad":"");
+      var i=document.createElement("input");i.type=type;i.name=name;i.value=t;
+      var s=document.createElement("span");s.textContent=t;
+      l.appendChild(i);l.appendChild(s);box.appendChild(l);
+      i.addEventListener("change",save);
+    });
+  }
+  chips("mais",CLASSICAS,"checkbox","mais");
+  chips("fx3",CLASSICAS,"checkbox","fx3");
+  chips("estoque",["Pouco","Médio","Grande","Não sei"],"radio","estoque");
+  chips("combo",["Sim","Não","Não sei"],"radio","combo");
+  chips("frete",["Grátis em Manaus","Grátis acima de certo valor","Sem mudança","Não sei"],"radio","frete");
+  chips("sugere",["Sim, sugerir","Já defini os valores"],"radio","sugere");
+
+  function num(id){var v=parseFloat($(id).value);return isNaN(v)?0:v}
+  function brl(v){return "R$ "+v.toFixed(2).replace(".",",")}
+  function checked(name){return [].slice.call(document.querySelectorAll("input[name="+name+"]:checked")).map(function(e){return e.value})}
+
+  function custo(){
+    var s=num("c_malha")+num("c_estampa")+num("c_emb")+num("c_out");
+    return s>0?s:num("c_total");
+  }
+  function recalc(){
+    var c=custo();$("custo").textContent=brl(c);
+    [1,2,3].forEach(function(n){
+      var p=num("p"+n),el=$("k"+n);
+      var cc=c;
+      if(!p){el.textContent="Preencha o preço para ver o lucro.";return}
+      if(!cc){el.textContent="Informe o custo na etapa 2 para calcular o lucro.";return}
+      var l=p-cc,m=l/p*100,min=num("lucro_min");
+      var cls=(min&&l<min)?"low":"good";
+      el.innerHTML="Lucro por camisa: <strong class='"+cls+"'>"+brl(l)+"</strong> · margem <strong class='"+cls+"'>"+Math.round(m)+"%</strong>"+((min&&l<min)?" (abaixo do mínimo de "+brl(min)+")":"");
+    });
+  }
+
+  function dt(v){if(!v)return "—";var a=v.split("-");return a[2]+"/"+a[1]+"/"+a[0]}
+  function val(id){var v=$(id).value.trim();return v||"—"}
+  function money(id){return num(id)?brl(num(id)):"—"}
+  function build(){
+    var c=custo(), L=[];
+    L.push("*Estudo de preços Black Friday – Rataria*");
+    L.push("Respondido por: "+val("quem"));
+    L.push("");
+    L.push("*Lançamentos (faixa 1):* "+LANC.join(", "));
+    L.push("*Clássicas que mais saem (faixa 2):* "+(checked("mais").join(", ")||"—"));
+    L.push("*Clássicas para o estoque (faixa 3):* "+(checked("fx3").join(", ")||"—"));
+    L.push("*Estoque antigo:* "+(checked("estoque")[0]||"—"));
+    L.push("");
+    L.push("*Custo por camisa:* "+(c?brl(c):"—")+" (igual para todas as estampas)");
+    L.push("  Malha/confecção "+money("c_malha")+" · Estampa "+money("c_estampa")+" · Embalagem "+money("c_emb")+" · Outros "+money("c_out"));
+    L.push("*Lucro mínimo:* "+money("lucro_min")+" · *Preço piso:* "+money("preco_piso"));
+    L.push("*Combo:* "+(checked("combo")[0]||"—")+" · *Frete:* "+(checked("frete")[0]||"—"));
+    L.push("");
+    L.push("*Os 3 valores:*");
+    [1,2,3].forEach(function(n){
+      var p=num("p"+n),t=["Lançamentos","As que mais saem","Estoque a girar"][n-1];
+      var cc=c;
+      L.push("  Faixa "+n+" ("+t+"): "+(p?brl(p):"—")+(p&&cc?" → lucro "+brl(p-cc)+" ("+Math.round((p-cc)/p*100)+"%)":""));
+    });
+    L.push("  Quer sugestão do Thiago: "+(checked("sugere")[0]||"—"));
+    L.push("");
+    L.push("*Período:* "+dt($("d_ini").value)+" a "+dt($("d_fim").value));
+    L.push("*Meta de vendas:* "+val("meta"));
+    L.push("*Concorrência:* "+val("conc"));
+    L.push("*Observações:* "+val("obs"));
+    return L.join("\n");
+  }
+
+  function show(n){
+    cur=n;
+    steps.forEach(function(s,i){s.classList.toggle("on",i===n)});
+    $("prog").style.width=((n+1)/steps.length*100)+"%";
+    $("stepName").textContent="Etapa "+(n+1)+" de "+steps.length+" · "+steps[n].dataset.name;
+    $("back").hidden=n===0;
+    $("next").hidden=n===steps.length-1;
+    if(n===steps.length-1){var t=build();$("summary").textContent=t;$("wa").href="https://wa.me/?text="+encodeURIComponent(t)}
+    var m=checked("mais");
+    $("f2list").innerHTML="<strong>Faixa 2 · As que mais saem:</strong> "+(m.length?m.join(", "):"nenhuma marcada na etapa 1.");
+    recalc();
+    window.scrollTo(0,0);
+  }
+  $("next").addEventListener("click",function(){if(cur<steps.length-1)show(cur+1)});
+  $("back").addEventListener("click",function(){if(cur>0)show(cur-1)});
+
+  $("copy").addEventListener("click",function(){
+    var t=$("summary").textContent,m=$("copyMsg");
+    function fallback(){
+      var r=document.createRange();r.selectNodeContents($("summary"));
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      m.textContent="Não consegui copiar sozinho. O texto está selecionado: segure e escolha Copiar.";
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){m.textContent="Resumo copiado. Cole na conversa com o Thiago."},fallback);
+    }else fallback();
+  });
+
+  function save(){
+    try{
+      var d={f:{},c:{}};
+      [].slice.call(document.querySelectorAll("#f input[id],#f textarea[id]")).forEach(function(e){d.f[e.id]=e.value});
+      [].slice.call(document.querySelectorAll("#f input[type=checkbox]:checked,#f input[type=radio]:checked")).forEach(function(e){(d.c[e.name]=d.c[e.name]||[]).push(e.value)});
+      localStorage.setItem(KEY,JSON.stringify(d));
+    }catch(e){}
+  }
+  function load(){
+    try{
+      var d=JSON.parse(localStorage.getItem(KEY)||"null");if(!d)return;
+      Object.keys(d.f).forEach(function(id){if($(id))$(id).value=d.f[id]});
+      Object.keys(d.c).forEach(function(n){d.c[n].forEach(function(v){
+        var e=document.querySelector("input[name="+n+"][value=\""+v.replace(/"/g,'\\"')+"\"]");if(e)e.checked=true})});
+    }catch(e){}
+  }
+  $("f").addEventListener("input",function(){save();recalc()});
+  $("f").addEventListener("submit",function(e){e.preventDefault()});
+  load();show(0);
+})();
+</script>
+
+</body>
+</html>
