@@ -331,8 +331,8 @@ const NOVAS = ESTAMPAS.filter(e=>!e.cl), CLAS = ESTAMPAS.filter(e=>e.cl);
 
 [NOVAS,CLAS].forEach(grp=>grp.forEach((e,i)=>{
   const cl=!!e.cl, n=grp.length, idx=ESTAMPAS.indexOf(e);
-  const prev = i===0 ? (cl?'#classicos':'#capa') : '#'+grp[i-1].id;
-  const next = i===n-1 ? (cl?'#classicos':'#capa') : '#'+grp[i+1].id;
+  const prev = i===0 ? (cl?'#'+NOVAS[NOVAS.length-1].id:'#capa') : '#'+grp[i-1].id;
+  const next = i===n-1 ? (cl?'#classicos':'#'+CLAS[0].id) : '#'+grp[i+1].id;
   const marca = cl ? `<span>${i+1} / ${n}</span>` : `<span class="dots">${grp.map((_,j)=>`<i class="${j===i?'on':''}"></i>`).join('')}</span>`;
   const s = document.createElement('section');
   s.className='page'; s.id=e.id; s.dataset.prev=prev; s.dataset.next=next;
@@ -344,7 +344,7 @@ const NOVAS = ESTAMPAS.filter(e=>!e.cl), CLAS = ESTAMPAS.filter(e=>e.cl);
     <div class="bar">
       <a class="btn" href="${cl?'#classicos':'#capa'}" aria-label="${cl?'Voltar à lista':'Voltar à capa'}">${cl?'← LISTA':'← CAPA'}</a>
       <button class="btn buy" type="button" data-e="${idx}">QUERO ESTA</button>
-      <a class="btn" href="${next}" aria-label="Próxima estampa">${i===n-1?(cl?'LISTA ›':'FIM ›'):'PRÓXIMA →'}</a>
+      <a class="btn" href="${next}" aria-label="Próxima estampa">${(i===n-1&&cl)?'LISTA ›':'PRÓXIMA →'}</a>
     </div>`;
   stage.appendChild(s);
 }));
