@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap">
 <meta name="theme-color" content="#0b0b0c">
 <meta property="og:title" content="Black Friday Rataria: 10% OFF levando 2 ou mais">
 <meta property="og:description" content="Novembro inteiro de promoção. Frete grátis em Manaus a partir de 3 camisas.">
@@ -134,6 +134,8 @@
   #classicos small{letter-spacing:.28em;font-size:11px;opacity:.6}
   #classicos h2{margin:6px 0 4px;font:italic 400 clamp(30px,9vw,44px)/1.05 Georgia,serif}
   #classicos .red{width:44px;height:3px;background:var(--red);margin:12px 0 14px}
+  #capa .frete .dt{display:block;margin-top:.6cqw;font-size:2.2cqw;letter-spacing:.8cqw;color:#fff;opacity:.8}
+  .regras{margin:14px 0 4px;font-size:11px;line-height:1.45;opacity:.6}
   .lista{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 8px}
   .lista a{color:#fff;text-decoration:none;display:block;font-size:10px;letter-spacing:.08em;line-height:1.25;text-align:center}
   .lista img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:#222;margin-bottom:5px;border:1px solid rgba(255,255,255,.12)}
@@ -186,6 +188,77 @@
   .lh{grid-column:1/-1;margin:6px 0 0;font-size:10px;letter-spacing:.28em;opacity:.55;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:6px}
   .lista .lh:first-child{margin-top:0}
   .zbot{padding:8px 4% calc(16px + env(safe-area-inset-bottom));display:flex;justify-content:center}
+
+  /* ===== capa v2: logo menor, preco em destaque, combos estilo varejo ===== */
+  #capa .logoh{width:29cqw;top:4.5cqw}
+  #capa h1.bf{top:16cqw;font-size:15cqw}
+  #capa .aptir{top:32.8cqw;display:flex;align-items:center;gap:2.4cqw;padding:1.2cqw 6cqw 1.4cqw 6cqw;letter-spacing:0;font:800 3.3cqw/1.05 "Barlow Condensed","Arial Narrow","Segoe UI",sans-serif;box-shadow:0 1.2cqw 3cqw rgba(0,0,0,.45)}
+  #capa .aptir i{font-style:normal;font-size:4.2cqw;letter-spacing:.9cqw;white-space:nowrap}
+  #capa .aptir b{font:800 9cqw/.9 "Barlow Condensed","Arial Narrow","Segoe UI",sans-serif;letter-spacing:-.2cqw}
+  #capa .aptir b{display:flex;align-items:center;color:#c8102e}
+  #capa .aptir sup{font-size:4.6cqw;vertical-align:baseline;position:static;margin:0 .6cqw 0 0;letter-spacing:0}
+  #capa .aptir sup+sup{align-self:flex-start;margin:.2cqw 0 0 .4cqw}
+  #capa .combo2{position:absolute;left:5cqw;right:5cqw;top:47.4cqw;display:grid;grid-template-columns:1fr 1.3fr;gap:2.4cqw}
+  #capa .c2{border-radius:2.4cqw;padding:1.9cqw 1.5cqw 1.9cqw;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7cqw;overflow:hidden}
+  #capa .c2.a{border:.5cqw solid #e8f400;background:rgba(0,0,0,.35);color:#fff}
+  #capa .c2.z{border:.5cqw solid #e8f400;background:rgba(0,0,0,.35);color:#fff;padding-bottom:0}
+  #capa .c2.z b{color:#e8f400}
+  #capa .c2 small{font:700 2.9cqw/1 "Barlow Condensed","Arial Narrow","Segoe UI",sans-serif;letter-spacing:.5cqw;text-transform:uppercase}
+  #capa .c2.a small:last-child{font-size:2.5cqw;letter-spacing:.35cqw;opacity:.85}
+  #capa .c2 b{font:800 8.6cqw/.95 "Barlow Condensed","Arial Narrow","Segoe UI",sans-serif}
+  #capa .c2 .n{font:800 7.4cqw/.6 "Barlow Condensed","Arial Narrow","Segoe UI",sans-serif;letter-spacing:0;color:#fff;margin:0 .6cqw;vertical-align:-.9cqw}
+  #capa .c2 u{text-decoration:none;font-size:6cqw}
+  #capa .c2 em{font-style:normal;font-size:6cqw;letter-spacing:.4cqw}
+  #capa .c2.a b{color:#e8f400}
+  #capa .c2 i{align-self:stretch;margin:.6cqw -2cqw 0;background:#c8102e;color:#fff;font:800 2.9cqw/1 "Barlow Condensed","Arial Narrow","Segoe UI",sans-serif;font-style:normal;letter-spacing:.4cqw;padding:1.5cqw 1cqw;text-transform:uppercase}
+  #capa .grid.u{top:72.2cqw;left:7cqw;right:7cqw;row-gap:2.2cqw}
+  #capa .clas{top:159.5cqw}
+  #capa .frete{top:169cqw}
+
+  /* ===== capa v3: capa usa a tela toda (mais alta que 9:16) e tem 16 estampas ===== */
+  body.capa-on #stage{width:min(100vw,47.6dvh);aspect-ratio:100/210}
+  #capa .logoh{top:5cqw}
+  #capa h1.bf{top:17.5cqw}
+  #capa .aptir{top:35.8cqw}
+  #capa .combo2{top:50.8cqw}
+  #capa .grid.u{top:77.8cqw;left:8cqw;right:8cqw}
+  #capa .clas{top:191.5cqw}
+  #capa .frete{top:200.8cqw}
+  #capa .clas{border:1px solid #fff;border-radius:1.6cqw;padding:1.9cqw 5cqw;opacity:1;top:191.4cqw}
+
+  /* ===== lista v4: sem divisoes, etiqueta nos lancamentos, titulo moderno ===== */
+  #classicos h2{margin:6px 0 6px;font:600 clamp(26px,8vw,36px)/1.05 "Barlow Condensed","Arial Narrow",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.16em}
+  .lista .im{display:block;position:relative;margin-bottom:5px}
+  .lista .im img{margin-bottom:0}
+  .lista .lc{position:absolute;left:50%;bottom:7px;transform:translateX(-50%);white-space:nowrap;background:#c8102e;color:#fff;font:800 9.5px/1 "Barlow Condensed","Segoe UI",sans-serif;font-style:normal;letter-spacing:.14em;padding:4px 8px 4px 9px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.5)}
+
+  /* ===== v5: todas as paginas usam mais altura da tela (menos faixa preta) ===== */
+  #stage{width:min(100vw,47.6dvh);aspect-ratio:100/210}
+  .fig{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);aspect-ratio:9/16;z-index:1;
+       -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 94%,transparent 100%)}
+  .page .top,.page .zhint{z-index:3}
+  #classicos h2{font-size:clamp(20px,6vw,28px);letter-spacing:.14em}
+
+  /* ===== v6: com camisa na sacola, o logo alinha com o B e o botao SACOLA com o Y ===== */
+  .bagbtn{padding:11px 16px;font-size:13.5px;border-color:rgba(255,255,255,.55)}
+  .bagbtn b{min-width:22px;padding:3px 7px;font-size:13.5px}
+  #capa .logoh{transition:width .25s,top .25s,left .25s}
+  body.bag-on #capa .logoh{left:8.2cqw;transform:none}
+  body.bag-on .bagbtn{right:8.85%;top:calc(19px + env(safe-area-inset-top))}
+
+  /* ===== v7: dica animada na capa (mao toca numa estampa e aparece o aviso) ===== */
+  #capa .dica{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;transition:opacity .3s}
+  #capa .dica.on{opacity:1}
+  #capa .mao{position:absolute;left:0;top:0;width:12cqw;height:12cqw;fill:#fff;stroke:#111;stroke-width:.6;paint-order:stroke;filter:drop-shadow(0 .8cqw 1.4cqw rgba(0,0,0,.7));transform-origin:48% 23%;transition:transform .8s cubic-bezier(.45,0,.2,1)}
+  #capa .mao.tap{animation:maotap .5s ease-out}
+  @keyframes maotap{0%{scale:1}40%{scale:.82}100%{scale:1}}
+  #capa .rip{position:absolute;left:0;top:0;width:10cqw;height:10cqw;margin:-5cqw 0 0 -5cqw;border-radius:50%;border:.7cqw solid #e8f400;opacity:0}
+  #capa .rip.go{animation:rip .7s ease-out}
+  @keyframes rip{0%{opacity:.95;transform:scale(.2)}100%{opacity:0;transform:scale(1.6)}}
+  #capa .bal{position:absolute;left:0;top:0;white-space:nowrap;background:#e8f400;color:#111;font:800 3.3cqw/1 "Barlow Condensed","Segoe UI",sans-serif;letter-spacing:.35cqw;padding:1.5cqw 3cqw 1.5cqw 3.4cqw;border-radius:999px;box-shadow:0 .6cqw 1.6cqw rgba(0,0,0,.55);opacity:0;transition:opacity .25s}
+  #capa .bal.on{opacity:1}
+  #capa .tu.hl img{outline:.7cqw solid #e8f400;outline-offset:.5cqw;border-radius:1cqw}
+  @media (prefers-reduced-motion:reduce){#capa .mao{transition:none}#capa .mao.tap,#capa .rip.go{animation:none}}
 </style>
 </head>
 <body>
@@ -193,15 +266,16 @@
   <section class="page on" id="capa" aria-label="Capa">
     <img class="logoh" src="../img/logo_h.webp" alt="Rataria">
     <h1 class="bf">BLACK FRIDAY</h1>
-    <div class="aptir">A PARTIR DE R$ 74,99</div>
-    <div class="combo">
-      <div><b>2 OU MAIS</b><span>10% OFF</span><small>no total da compra</small></div>
-      <div><b>3 OU MAIS</b><span>10% OFF</span><small>+ FRETE GRÁTIS EM MANAUS</small></div>
+    <div class="aptir"><i>A PARTIR DE</i><b><sup>R$</sup>74<sup>,99</sup></b></div>
+    <div class="combo2">
+      <div class="c2 a"><small>LEVE <span class="n">2</span> OU MAIS</small><b>10<u>%</u> <em>OFF</em></b><small>NO TOTAL DA COMPRA</small></div>
+      <div class="c2 z"><small>LEVE <span class="n">3</span> OU MAIS</small><b>10<u>%</u> <em>OFF</em></b><i>+ FRETE GRÁTIS EM MANAUS</i></div>
     </div>
-    <div class="grid u"><a class="tu" href="#arrasca" aria-label="ARRASCA"><img src="../img/arte_arrasca.webp" alt="ARRASCA"></a><a class="tu" href="#samu" aria-label="CHAMA O SAMU"><img src="../img/arte_samu.webp" alt="CHAMA O SAMU"></a><a class="tu" href="#jorginho" aria-label="JORGINHO"><img src="../img/arte_jorginho.webp" alt="JORGINHO"></a><a class="tu" href="#romario" aria-label="ROMÁRIO"><img src="../img/arte_romario.webp" alt="ROMÁRIO"></a><a class="tu" href="#nmnd" aria-label="NINGUÉM MORRE NOS DEVENDO"><img src="../img/m_nmnd.webp" alt="NINGUÉM MORRE NOS DEVENDO"></a><a class="tu" href="#ozzy" aria-label="OZZY"><img src="../img/m_ozzy.webp" alt="OZZY"></a><a class="tu" href="#pulgar" aria-label="PULGAR"><img src="../img/m_pulgar.webp" alt="PULGAR"></a><a class="tu" href="#tetra" aria-label="TETRA"><img src="../img/m_tetra.webp" alt="TETRA"></a><a class="tu" href="#samurai" aria-label="SAMURAI DE QUINTINO"><img src="../img/m_samurai.webp" alt="SAMURAI DE QUINTINO"></a><a class="tu" href="#mussum" aria-label="MUSSUM"><img src="../img/m_mussum.webp" alt="MUSSUM"></a><a class="tu" href="#bob" aria-label="BOB"><img src="../img/m_bob.webp" alt="BOB"></a><a class="tu" href="#paqueta" aria-label="PAQUETÁ"><img src="../img/m_paqueta.webp" alt="PAQUETÁ"></a></div>
+    <div class="grid u"><a class="tu" href="#arrasca" aria-label="ARRASCA"><img src="../img/arte_arrasca.webp" alt="ARRASCA"></a><a class="tu" href="#samu" aria-label="CHAMA O SAMU"><img src="../img/arte_samu.webp" alt="CHAMA O SAMU"></a><a class="tu" href="#jorginho" aria-label="JORGINHO"><img src="../img/arte_jorginho.webp" alt="JORGINHO"></a><a class="tu" href="#romario" aria-label="ROMÁRIO"><img src="../img/arte_romario.webp" alt="ROMÁRIO"></a><a class="tu" href="#nmnd" aria-label="NINGUÉM MORRE NOS DEVENDO"><img src="../img/m_nmnd.webp" alt="NINGUÉM MORRE NOS DEVENDO"></a><a class="tu" href="#ozzy" aria-label="OZZY"><img src="../img/m_ozzy.webp" alt="OZZY"></a><a class="tu" href="#pulgar" aria-label="PULGAR"><img src="../img/m_pulgar.webp" alt="PULGAR"></a><a class="tu" href="#tetra" aria-label="TETRA"><img src="../img/m_tetra.webp" alt="TETRA"></a><a class="tu" href="#samurai" aria-label="SAMURAI DE QUINTINO"><img src="../img/m_samurai.webp" alt="SAMURAI DE QUINTINO"></a><a class="tu" href="#mussum" aria-label="MUSSUM"><img src="../img/m_mussum.webp" alt="MUSSUM"></a><a class="tu" href="#bob" aria-label="BOB"><img src="../img/m_bob.webp" alt="BOB"></a><a class="tu" href="#paqueta" aria-label="PAQUETÁ"><img src="../img/m_paqueta.webp" alt="PAQUETÁ"></a><a class="tu" href="#otopatamar" aria-label="OTOPATAMAR"><img src="../img/m_otopatamar.webp" alt="OTOPATAMAR"></a><a class="tu" href="#quatroxcinco" aria-label="4x5"><img src="../img/m_quatroxcinco.webp" alt="4x5"></a><a class="tu" href="#time25" aria-label="TIME 2025"><img src="../img/m_time25.webp" alt="TIME 2025"></a><a class="tu" href="#adriano" aria-label="ADRIANO"><img src="../img/m_adriano.webp" alt="ADRIANO"></a></div>
+    <div class="dica" aria-hidden="true"><i class="rip"></i><svg class="mao" viewBox="0 0 24 24"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.69-5.1c.01-.06.02-.13.02-.2 0-.62-.38-1.16-.91-1.38z"/></svg><span class="bal">TOQUE PARA VER NA CAMISA</span></div>
     <div id="arts" hidden></div><div class="who" id="who" hidden></div>
     <a class="clas" href="#classicos">VER TODOS OS MODELOS ›</a>
-    <div class="frete"><b>NOVEMBRO INTEIRO DE PROMOÇÃO</b></div>
+    <div class="frete"><b>NOVEMBRO INTEIRO DE PROMOÇÃO</b><span class="dt">DE 05/11 A 30/11</span></div>
   </section>
 
   <section class="page" id="classicos" aria-label="Modelos clássicos">
@@ -210,6 +284,7 @@
       <h2>Todos os modelos</h2>
       <div class="red"></div>
       <div class="lista" id="lista"></div>
+      <p class="regras">Promoção válida de 05/11 a 30/11 (ou enquanto durarem os estoques). 10% de desconto no total a partir de 2 camisas. Frete grátis em Manaus a partir de 3 camisas. Não acumula com outros descontos.</p>
     </div>
     <div class="bar"><a class="btn" href="#capa">← CAPA</a></div>
   </section>
@@ -256,6 +331,7 @@
       <label class="cepl" for="cep">SEU CEP (PARA CALCULAR A ENTREGA)</label>
       <input id="cep" class="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000">
       <div class="cepinfo" id="cepinfo" aria-live="polite"></div>
+      <p class="regras">Promoção válida de 05/11 a 30/11 (ou enquanto durarem os estoques). 10% de desconto no total a partir de 2 camisas. Frete grátis em Manaus a partir de 3 camisas. Não acumula com outros descontos.</p>
       <a class="btn buy go wide" id="sgo" aria-disabled="true" target="_blank" rel="noopener">ENVIAR PEDIDO NO WHATSAPP</a>
       <a class="btn wide cont" href="#capa">← CONTINUAR ESCOLHENDO</a>
     </div>
@@ -336,11 +412,11 @@ const NOVAS = ESTAMPAS.filter(e=>!e.cl), CLAS = ESTAMPAS.filter(e=>e.cl);
   const marca = cl ? `<span>${i+1} / ${n}</span>` : `<span class="dots">${grp.map((_,j)=>`<i class="${j===i?'on':''}"></i>`).join('')}</span>`;
   const s = document.createElement('section');
   s.className='page'; s.id=e.id; s.dataset.prev=prev; s.dataset.next=next;
-  s.innerHTML = `<img class="bg" id="bg-${e.id}" data-src="../img/${e.id}.jpg" alt="${e.nome}">
+  s.innerHTML = `<div class="fig"><img class="bg" id="bg-${e.id}" data-src="../img/${e.id}.jpg" alt="${e.nome}">
     <div class="top"><span>${e.nome}</span>${marca}</div>${cl?'':'<b class="nova">LANÇAMENTO</b>'}
     <button class="zhint" type="button" data-z="costas" data-id="${e.id}">TOQUE NA ESTAMPA PARA AMPLIAR</button>
     <button class="zhot back" type="button" data-z="costas" data-id="${e.id}" aria-label="Ampliar estampa das costas" style="left:${e.costas[0]}%;top:${e.costas[1]}%;width:${e.costas[2]}%;height:${e.costas[3]}%"></button>
-    <button class="zhot" type="button" data-z="frente" data-id="${e.id}" aria-label="Ampliar estampa da frente" style="left:${e.frente[0]}%;top:${e.frente[1]}%;width:${e.frente[2]}%;height:${e.frente[3]}%"></button>
+    <button class="zhot" type="button" data-z="frente" data-id="${e.id}" aria-label="Ampliar estampa da frente" style="left:${e.frente[0]}%;top:${e.frente[1]}%;width:${e.frente[2]}%;height:${e.frente[3]}%"></button></div>
     <div class="bar">
       <a class="btn" href="${cl?'#classicos':'#capa'}" aria-label="${cl?'Voltar à lista':'Voltar à capa'}">${cl?'← LISTA':'← CAPA'}</a>
       <button class="btn buy" type="button" data-e="${idx}">QUERO ESTA</button>
@@ -348,7 +424,7 @@ const NOVAS = ESTAMPAS.filter(e=>!e.cl), CLAS = ESTAMPAS.filter(e=>e.cl);
     </div>`;
   stage.appendChild(s);
 }));
-document.getElementById('lista').innerHTML = '<p class="lh">LANÇAMENTOS</p>' + NOVAS.map(e=>`<a href="#${e.id}"><img loading="lazy" src="../img/t_${e.id}.webp" alt=""><span>${e.nome}</span></a>`).join('') + '<p class="lh">MODELOS CLÁSSICOS</p>' + CLAS.map(e=>`<a href="#${e.id}"><img loading="lazy" src="../img/t_${e.id}.webp" alt=""><span>${e.nome}</span></a>`).join('');
+document.getElementById('lista').innerHTML = NOVAS.map(e=>((e,nv)=>`<a href="#${e.id}"><b class="im"><img loading="lazy" src="../img/t_${e.id}.webp" alt="">${nv?'<em class="lc">LANÇAMENTO</em>':''}</b><span>${e.nome}</span></a>`)(e,true)).join('') + CLAS.map(e=>((e,nv)=>`<a href="#${e.id}"><b class="im"><img loading="lazy" src="../img/t_${e.id}.webp" alt="">${nv?'<em class="lc">LANÇAMENTO</em>':''}</b><span>${e.nome}</span></a>`)(e,false)).join('');
 function carrega(id){ const im=document.querySelector('#'+id+' img.bg'); if(im&&!im.getAttribute('src')) im.src=im.dataset.src; }
 
 const rows = document.getElementById('rows');
@@ -376,7 +452,7 @@ let cep=null, local='';
 const cepEl=document.getElementById('cep'), cepInfo=document.getElementById('cepinfo');
 const ehManaus=d=>{const n=+d.slice(0,5); return n>=69000&&n<=69099;};
 function desenhaSacola(){
-  const c=calc(), n=c.n; bagn.textContent=n; bagbtn.hidden = n===0 || atualId==='sacola';
+  const c=calc(), n=c.n; document.body.classList.toggle('bag-on', n>0); bagn.textContent=n; bagbtn.hidden = n===0 || atualId==='sacola';
   document.getElementById('bagempty').hidden=n>0; document.getElementById('bagtot').hidden=n===0;
   document.getElementById('bagval').textContent=REAL(c.total);
   const sum=document.getElementById('bagsum'); sum.hidden = !(n>=2 && c.desc>0);
@@ -516,13 +592,53 @@ function show(){
   const k=NOVAS.findIndex(e=>e.id===atualId);
   if(alvo.id==='capa'){ if(k>=0){ const nf=(k+1)%NOVAS.length, passo=(nf===(foco+1)%NOVAS.length); foco=nf; layout(passo); } agenda(); } else { clearTimeout(timer); }
   atualId=alvo.id; fechaZ();
+  if(alvo.id==='capa'){ window.iniciaDica&&window.iniciaDica(); } else { window.paraDica&&window.paraDica(); }
   if(alvo.id==='capa') NOVAS.forEach(e=>carrega(e.id));
   else if(alvo.dataset.next){ carrega(alvo.id); [alvo.dataset.next,alvo.dataset.prev].forEach(h=>{ if(h&&h!=='#capa'&&h!=='#classicos'&&document.getElementById(h.slice(1))) carrega(h.slice(1)); }); }
  if(ESTAMPAS.some(e=>e.id===alvo.id)) setTimeout(()=>preZoom(alvo.id),500); stage.scrollLeft=0; stage.scrollTop=0;
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p===alvo));
+  document.body.classList.toggle('capa-on',alvo.id==='capa');
   if(alvo.id!=='tabela') fecha();
   desenhaSacola();
 }
+
+// ---- dica animada da capa
+(function(){
+  const capa=document.getElementById('capa'), dica=capa.querySelector('.dica'), mao=dica.querySelector('.mao'),
+        rip=dica.querySelector('.rip'), bal=dica.querySelector('.bal');
+  const tiles=[...capa.querySelectorAll('.grid.u .tu')], seq=[0];
+  const KEY='rataria_bf_dica';
+  let run=0;
+  const jaViu=()=>{ try{ return localStorage.getItem(KEY)==='1'; }catch(e){ return false; } };
+  const marca=()=>{ try{ localStorage.setItem(KEY,'1'); }catch(e){} };
+  const dorme=ms=>new Promise(r=>setTimeout(r,ms));
+  function pos(i){ const s=stage.getBoundingClientRect(), r=tiles[i].getBoundingClientRect();
+    return {x:r.left-s.left+r.width/2, y:r.top-s.top+r.height*.5, base:r.bottom-s.top, w:s.width}; }
+  function para(){ run++; dica.classList.remove('on'); bal.classList.remove('on'); tiles.forEach(t=>t.classList.remove('hl')); }
+  async function inicia(){
+    para(); if(jaViu()) return;
+    marca(); const meu=run; await dorme(1700); if(meu!==run) return;
+    dica.classList.add('on');
+    const mw=mao.getBoundingClientRect().width; const move=(x,y)=>{ mao.style.transform=`translate(${x-mw*.48}px,${y-mw*.23}px)`; };
+    const p0=pos(seq[0]); mao.style.transition='none'; move(p0.x, p0.y+60); mao.getBoundingClientRect(); mao.style.transition='';
+    for(let ciclo=0; ciclo<1; ciclo++){
+      for(const i of seq){
+        if(meu!==run) return;
+        const p=pos(i); move(p.x,p.y); await dorme(900); if(meu!==run) return;
+        mao.classList.remove('tap'); rip.classList.remove('go'); void mao.offsetWidth;
+        mao.classList.add('tap'); rip.style.left=p.x+'px'; rip.style.top=p.y+'px'; rip.classList.add('go');
+        tiles[i].classList.add('hl');
+        bal.style.left=Math.min(Math.max(p.x-bal.offsetWidth/2, p.w*.04), p.w*.96-bal.offsetWidth)+'px';
+        bal.style.top=(p.base+p.w*.025)+'px'; bal.classList.add('on');
+        await dorme(3200); if(meu!==run) return;
+        bal.classList.remove('on'); tiles[i].classList.remove('hl'); await dorme(250);
+      }
+    }
+    para();
+  }
+  capa.addEventListener('pointerdown',e=>{ if(e.target.closest('.tu')) marca(); para(); });
+  window.iniciaDica=inicia; window.paraDica=para;
+})();
 addEventListener('hashchange',show); show();
 
 let x0=null;
